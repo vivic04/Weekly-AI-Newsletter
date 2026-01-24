@@ -1,0 +1,1377 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>AI/ML Developments in North American Banking: January 2026 Analysis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#1e293b',
+                        secondary: '#64748b',
+                        accent: '#3b82f6',
+                        neutral: '#f8fafc',
+                        'base-100': '#ffffff',
+                        'base-200': '#f1f5f9',
+                        'base-300': '#e2e8f0',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Added for mermaid diagram styling */
+        .mermaid-container {
+            display: flex;
+            justify-content: center;
+            min-height: 300px;
+            max-height: 800px;
+            background: #ffffff;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mermaid-container .mermaid {
+            width: 100%;
+            max-width: 100%;
+            height: 100%;
+            cursor: grab;
+            transition: transform 0.3s ease;
+            transform-origin: center center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            touch-action: none; /* 防止触摸设备上的默认行为 */
+            -webkit-user-select: none; /* 防止文本选择 */
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .mermaid-container .mermaid svg {
+            max-width: 100%;
+            height: 100%;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .mermaid-container .mermaid:active {
+            cursor: grabbing;
+        }
+
+        .mermaid-container.zoomed .mermaid {
+            height: 100%;
+            width: 100%;
+            cursor: grab;
+        }
+
+        .mermaid-controls {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            display: flex;
+            gap: 10px;
+            z-index: 20;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 8px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .mermaid-control-btn {
+            background: #ffffff;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            padding: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: #374151;
+            font-size: 14px;
+            min-width: 36px;
+            height: 36px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mermaid-control-btn:hover {
+            background: #f8fafc;
+            border-color: #3b82f6;
+            color: #3b82f6;
+            transform: translateY(-1px);
+        }
+
+        .mermaid-control-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Adjusted for mermaid diagram text contrast */
+        .mermaid svg {
+            max-width: none;
+            height: auto;
+            font-family: 'Inter', sans-serif;
+            background: transparent;
+            border-radius: 8px;
+        }
+        .mermaid .node rect,
+        .mermaid .node circle,
+        .mermaid .node ellipse,
+        .mermaid .node polygon {
+            fill: #ffffff;
+            stroke: #1e293b;
+            stroke-width: 2px;
+            filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.1));
+        }
+        .mermaid .node text {
+            fill: #1e293b;
+            font-weight: 600;
+            font-size: 13px;
+            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+        }
+        .mermaid .node .label {
+            color: #1e293b;
+            font-weight: 600;
+        }
+        .mermaid .edgePath path {
+            stroke: #64748b;
+            stroke-width: 2px;
+            filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+        }
+        .mermaid .arrowheadPath {
+            fill: #64748b;
+            filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+        }
+        /* Timeline specific styling with improved contrast */
+        .mermaid .section {
+            fill: #ffffff;
+            stroke: #3b82f6;
+            stroke-width: 2px;
+        }
+        .mermaid .section0 {
+            fill: #dbeafe;
+            stroke: #1d4ed8;
+            stroke-width: 2px;
+        }
+        .mermaid .section1 {
+            fill: #dcfce7;
+            stroke: #16a34a;
+            stroke-width: 2px;
+        }
+        .mermaid .section2 {
+            fill: #fef3c7;
+            stroke: #d97706;
+            stroke-width: 2px;
+        }
+        .mermaid .section3 {
+            fill: #fce7f3;
+            stroke: #be185d;
+            stroke-width: 2px;
+        }
+        .mermaid .cScale0 {
+            fill: #1d4ed8;
+        }
+        .mermaid .cScale1 {
+            fill: #16a34a;
+        }
+        .mermaid .cScale2 {
+            fill: #d97706;
+        }
+        .mermaid .cScale3 {
+            fill: #be185d;
+        }
+        /* Timeline task styling with high contrast text */
+        .mermaid .task0, .mermaid .task1, .mermaid .task2, .mermaid .task3,
+        .mermaid .taskText0, .mermaid .taskText1, .mermaid .taskText2, .mermaid .taskText3 {
+            fill: #1e293b;
+            font-weight: 600;
+            font-size: 12px;
+        }
+        /* Timeline text styling */
+        .mermaid .timelineText {
+            fill: #ffffff;
+            font-weight: 600;
+            font-size: 13px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        /* Timeline title styling */
+        .mermaid .titleText {
+            fill: #1e293b;
+            font-weight: 700;
+            font-size: 18px;
+            text-anchor: middle;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+        
+        .hero-overlay {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(59, 130, 246, 0.8) 100%);
+        }
+        
+        .toc-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 280px;
+            height: 100vh;
+            background: #ffffff;
+            border-right: 1px solid #e2e8f0;
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 2rem 1.5rem;
+        }
+        
+        .main-content {
+            margin-left: 280px;
+            min-height: 100vh;
+        }
+        
+        .citation-link {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted #3b82f6;
+        }
+        
+        .citation-link:hover {
+            background-color: #dbeafe;
+            border-bottom: 1px solid #3b82f6;
+        }
+        
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, #e2e8f0 50%, transparent 100%);
+            margin: 3rem 0;
+        }
+        
+        .pull-quote {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            font-style: italic;
+            color: #475569;
+            border-left: 4px solid #3b82f6;
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        @media (max-width: 1024px) {
+            .toc-fixed {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+            
+            .toc-fixed.mobile-open {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+
+            /* Responsive mermaid controls */
+            .mermaid-control-btn:not(.reset-zoom) {
+                display: none;
+            }
+            .mermaid-controls {
+                top: auto;
+                bottom: 15px;
+                right: 15px;
+            }
+        }
+    </style>
+  <base target="_blank">
+</head>
+
+  <body class="bg-neutral font-sans">
+    <!-- Table of Contents -->
+    <nav class="toc-fixed" id="tableOfContents">
+      <div class="mb-8">
+        <h3 class="font-serif font-semibold text-lg text-primary mb-4">Contents</h3>
+        <ul class="space-y-2 text-sm">
+          <li>
+            <a href="#executive-summary" class="block py-1 text-secondary hover:text-accent transition-colors">Executive Summary</a>
+          </li>
+          <li>
+            <a href="#major-developments" class="block py-1 text-secondary hover:text-accent transition-colors">Major Developments Outside Target Week</a>
+          </li>
+          <li>
+            <a href="#us-banks" class="block py-1 text-secondary hover:text-accent transition-colors">US Banks</a>
+          </li>
+          <li>
+            <a href="#jpmorgan" class="block py-1 pl-4 text-secondary hover:text-accent transition-colors">JPMorgan Chase: Proxy IQ</a>
+          </li>
+          <li>
+            <a href="#capital-one" class="block py-1 pl-4 text-secondary hover:text-accent transition-colors">Capital One: Brex Acquisition</a>
+          </li>
+          <li>
+            <a href="#week-commentary" class="block py-1 text-secondary hover:text-accent transition-colors">Target Week Commentary</a>
+          </li>
+          <li>
+            <a href="#boa-efficiency" class="block py-1 pl-4 text-secondary hover:text-accent transition-colors">Bank of America Efficiency</a>
+          </li>
+          <li>
+            <a href="#citigroup" class="block py-1 pl-4 text-secondary hover:text-accent transition-colors">Citigroup&#39;s Human-Centered AI</a>
+          </li>
+          <li>
+            <a href="#goldman" class="block py-1 pl-4 text-secondary hover:text-accent transition-colors">Goldman Sachs 3.0 Model</a>
+          </li>
+          <li>
+            <a href="#canadian-banks" class="block py-1 text-secondary hover:text-accent transition-colors">Canadian Big 5 Banks</a>
+          </li>
+          <li>
+            <a href="#industry-trends" class="block py-1 text-secondary hover:text-accent transition-colors">Industry-Wide Trends</a>
+          </li>
+          <li>
+            <a href="#autonomous-ai" class="block py-1 pl-4 text-secondary hover:text-accent transition-colors">Autonomous AI Rise</a>
+          </li>
+          <li>
+            <a href="#workforce-impact" class="block py-1 pl-4 text-secondary hover:text-accent transition-colors">Workforce Impact</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="mt-8 pt-4 border-t border-base-300">
+        <p class="text-xs text-secondary mb-2">Analysis Period</p>
+        <p class="text-sm font-medium">January 14-21, 2026</p>
+      </div>
+    </nav>
+
+    <!-- Mobile TOC Toggle -->
+    <button class="lg:hidden fixed top-4 left-4 z-50 bg-white p-2 rounded-lg shadow-lg border border-base-300" onclick="toggleMobileTOC()">
+      <i class="fas fa-bars text-primary"></i>
+    </button>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Hero Section -->
+      <section class="relative min-h-[60vh] flex items-center">
+        <div class="absolute inset-0">
+          <img src="https://kimi-web-img.moonshot.cn/img/cfotech.in/7d4926ff5bfb9939611f8bdc6a5c90038ecec70d.webp" alt="Abstract representation of AI in banking" class="w-full h-full object-cover" size="wallpaper" aspect="wide" query="AI banking abstract" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
+          <div class="hero-overlay absolute inset-0"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-8">
+              <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                <em class="italic">The Quiet Revolution:</em>
+                <br/>
+                AI Integration Deepens in North American Banking
+              </h1>
+              <p class="text-lg sm:text-xl text-gray-200 mb-8 max-w-3xl">
+                An analysis of AI/ML developments during January 14-21, 2026, revealing strategic integration over standalone announcements
+              </p>
+            </div>
+
+            <div class="lg:col-span-4">
+              <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                <h3 class="font-serif text-2xl text-white mb-4">Key Insights</h3>
+                <ul class="space-y-3 text-gray-200">
+                  <li class="flex items-start">
+                    <i class="fas fa-chart-line text-accent mr-3 mt-1"></i>
+                    <span>No major AI product launches during target week</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-cogs text-accent mr-3 mt-1"></i>
+                    <span>Deep AI integration into core operations</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-users text-accent mr-3 mt-1"></i>
+                    <span>Tangible workforce productivity impacts</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Executive Summary -->
+      <section id="executive-summary" class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-8">
+          <h2 class="font-serif text-4xl font-bold text-primary mb-8">Executive Summary</h2>
+
+          <div class="prose prose-lg max-w-none">
+            <h3 class="font-serif text-2xl font-semibold text-primary mt-8 mb-4">Limited Major Announcements During Target Week</h3>
+
+            <p class="text-secondary leading-relaxed mb-6">
+              The period of January 14-21, 2026, was characterized by a notable absence of major, standalone AI or machine learning product launches from the leading North American banks. Instead of discrete announcements, the week was marked by a continuation of a broader, industry-wide trend: the deep and strategic integration of AI into core business operations.
+            </p>
+
+            <div class="pull-quote">
+              &#34;The focus has clearly shifted from experimental, proof-of-concept projects to large-scale, enterprise-wide deployment aimed at tangible business outcomes.&#34;
+            </div>
+
+            <p class="text-secondary leading-relaxed mb-6">
+              This period reflects a maturation of AI strategy within the banking sector, where the technology is no longer a novelty but a central component of the operational and competitive playbook. Banks such as Goldman Sachs, Bank of America, and Wells Fargo used earnings call platforms not to unveil new products, but to elaborate on how AI is becoming a fundamental driver of productivity, efficiency, and long-term strategic positioning.
+            </p>
+
+            <h3 class="font-serif text-2xl font-semibold text-primary mt-8 mb-4">Strategic Developments Bookended the Target Window</h3>
+
+            <p class="text-secondary leading-relaxed mb-6">
+              A critical finding reveals that while the January 14-21, 2026, window itself was quiet for major launches, significant strategic announcements occurred immediately before and after this period. This pattern suggests a strategic communication rhythm where banks use the turn of the year and earnings season to set the stage for the year ahead.
+            </p>
+
+            <div class="bg-base-200 rounded-lg p-6 my-8">
+              <h4 class="font-semibold text-primary mb-4">Timeline of Key Announcements</h4>
+              <div class="space-y-3">
+                <div class="flex items-center">
+                  <div class="w-3 h-3 bg-red-500 rounded-full mr-4"></div>
+                  <div>
+                    <span class="font-medium">January 2:</span> Morgan Stanley&#39;s 2026 outlook identifies AI as primary market driver
+                  </div>
+                </div>
+                <div class="flex items-center">
+                  <div class="w-3 h-3 bg-blue-500 rounded-full mr-4"></div>
+                  <div>
+                    <span class="font-medium">January 7:</span> JPMorgan Chase launches Proxy IQ platform
+                  </div>
+                </div>
+                <div class="flex items-center">
+                  <div class="w-3 h-3 bg-green-500 rounded-full mr-4"></div>
+                  <div>
+                    <span class="font-medium">January 9:</span> Bank of America predicts &#34;year of autonomous AI&#34;
+                  </div>
+                </div>
+                <div class="flex items-center">
+                  <div class="w-3 h-3 bg-purple-500 rounded-full mr-4"></div>
+                  <div>
+                    <span class="font-medium">January 22:</span> Capital One acquires Brex for $5.15 billion
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Major Developments Outside Target Week -->
+      <section id="major-developments" class="py-16 bg-base-200">
+        <div class="max-w-6xl mx-auto px-8">
+          <h2 class="font-serif text-4xl font-bold text-primary mb-12 text-center">Major Developments Outside the Target Window</h2>
+
+          <!-- JPMorgan Chase -->
+          <div id="jpmorgan" class="mb-16">
+            <div class="bg-white rounded-2xl p-8 shadow-sm border border-base-300">
+              <div class="flex items-center mb-6">
+                <img src="https://kimi-web-img.moonshot.cn/img/cdn.freebiesupply.com/2c8da30ad659bc679a573b8dedb379657a5da837.png" alt="JPMorgan Chase corporate logo" class="w-16 h-16 rounded-lg mr-4" size="small" aspect="square" color="blue" style="transparent" query="JPMorgan Chase logo" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
+                <div>
+                  <h3 class="font-serif text-3xl font-bold text-primary">JPMorgan Chase: Proxy IQ AI Platform</h3>
+                  <p class="text-secondary">Revolutionizing proxy voting with proprietary AI</p>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div>
+                  <h4 class="font-semibold text-primary mb-4">Strategic Shift</h4>
+                  <p class="text-secondary mb-4">
+                    On <strong>January 7, 2026</strong>, JPMorgan Chase announced it would cease reliance on third-party proxy advisory firms, implementing its proprietary <strong>&#34;Proxy IQ&#34;</strong> platform instead. This industry-first move aggregates data from over <a href="https://news.ballotpedia.org/2026/01/14/jpmorgan-shifts-u-s-proxy-voting-to-ai-system/" class="citation-link">3,000 annual company meetings</a> to provide data-driven voting recommendations.
+                  </p>
+
+                  <div class="bg-accent/10 rounded-lg p-4 mb-4">
+                    <p class="text-sm text-primary font-medium">
+                      <i class="fas fa-quote-left mr-2"></i>
+                      &#34;The first major investment firm to fully eliminate any reliance on external proxy advisors for its U.S. voting process&#34;
+                    </p>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 class="font-semibold text-primary mb-4">Market Impact</h4>
+                  <p class="text-secondary mb-4">
+                    This shift challenges the duopoly of <strong>ISS</strong> and <strong>Glass Lewis</strong>, which control over <a href="https://news.ballotpedia.org/2026/01/14/jpmorgan-shifts-u-s-proxy-voting-to-ai-system/" class="citation-link">90% of the proxy advisory market</a>. The move responds to increasing regulatory scrutiny and advances JPMorgan&#39;s stewardship philosophy.
+                  </p>
+
+                  <div class="flex items-center justify-between bg-base-200 rounded-lg p-4">
+                    <span class="text-sm font-medium text-secondary">Implementation Timeline</span>
+                    <span class="font-semibold text-primary">Q1 2026</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Capital One -->
+          <div id="capital-one" class="mb-16">
+            <div class="bg-white rounded-2xl p-8 shadow-sm border border-base-300">
+              <div class="flex items-center mb-6">
+                <img src="https://kimi-web-img.moonshot.cn/img/logoeps.com/7d7585bac006f13d8214e2a62c57e9a0a980ad10.png" alt="Capital One financial company logo" class="w-16 h-16 rounded-lg mr-4" size="small" aspect="square" query="Capital One logo" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
+                <div>
+                  <h3 class="font-serif text-3xl font-bold text-primary">Capital One: Brex Acquisition</h3>
+                  <p class="text-secondary">$5.15 billion bet on AI-native fintech</p>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2">
+                  <h4 class="font-semibold text-primary mb-4">Strategic Rationale</h4>
+                  <p class="text-secondary mb-4">
+                    Announced <strong>January 22, 2026</strong>, the <a href="https://news.crunchbase.com/ma/capital-one-acquisition-fintech-startup-brex/" class="citation-link">$5.15 billion acquisition</a> of Brex represents one of the largest bank-fintech transactions in history. Richard Fairbank, Capital One&#39;s CEO, stated the deal would <strong>&#34;accelerate this journey, especially in the business payments marketplace&#34;</strong>.
+                  </p>
+
+                  <div class="bg-green-50 rounded-lg p-4 mb-4">
+                    <h5 class="font-medium text-green-800 mb-2">Brex&#39;s AI-Native Platform</h5>
+                    <p class="text-sm text-green-700">
+                      Brex&#39;s platform leverages <strong>AI agents</strong> to automate expense reporting, receipt matching, and real-time spending rule enforcement, serving clients like <em>DoorDash, Robinhood, and Zoom</em>.
+                    </p>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="bg-primary text-white rounded-lg p-6 text-center">
+                    <div class="text-3xl font-bold mb-2">$5.15B</div>
+                    <div class="text-sm opacity-90">Acquisition Value</div>
+                  </div>
+
+                  <div class="mt-4 space-y-2">
+                    <div class="flex justify-between">
+                      <span class="text-sm text-secondary">Peak Valuation:</span>
+                      <span class="text-sm font-medium">$12.3B (2021)</span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span class="text-sm text-secondary">Capital One R&amp;D:</span>
+                      <span class="text-sm font-medium">$6B annually</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Target Week Commentary -->
+      <section id="week-commentary" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-8">
+          <h2 class="font-serif text-4xl font-bold text-primary mb-12 text-center">AI/ML Commentary During January 14-21, 2026</h2>
+
+          <!-- Bank of America -->
+          <div id="boa-efficiency" class="mb-16">
+            <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8">
+              <div class="flex items-center mb-6">
+                <img src="https://kimi-web-img.moonshot.cn/img/cdn.brandfetch.io/cf6968675906d20eacf2de3b28d516e1e155b678.jpeg" alt="Bank of America logo" class="w-16 h-16 rounded-lg mr-4" size="small" aspect="square" query="Bank of America logo" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
+                <div>
+                  <h3 class="font-serif text-3xl font-bold text-primary">Bank of America: AI-Driven Efficiency</h3>
+                  <p class="text-secondary">Quantifying AI&#39;s impact on productivity and workforce</p>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div>
+                  <h4 class="font-semibold text-primary mb-4">CEO Commentary on AI Payoff</h4>
+                  <p class="text-secondary mb-4">
+                    Brian Moynihan highlighted a massive <a href="https://www.cnbctv18.com/world/bank-of-america-ceo-ai-spending-returns-2026-bullish-india-growth-ws-l-19826345.htm" class="citation-link">$14 billion technology budget</a>, with $4.5 billion specifically earmarked for AI initiatives. He emphasized being in the &#34;early days&#34; of <strong>&#34;agentic AI&#34;</strong>.
+                  </p>
+
+                  <div class="bg-white rounded-lg p-4 shadow-sm">
+                    <h5 class="font-medium text-primary mb-2">Virtual Assistant &#34;Erica&#34; Performance</h5>
+                    <div class="flex items-center justify-between">
+                      <span class="text-secondary">Active Users</span>
+                      <span class="font-bold text-2xl text-accent">20 million</span>
+                    </div>
+                    <p class="text-sm text-secondary mt-2">Improving efficiency across thousands of processes</p>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 class="font-semibold text-primary mb-4">Workforce Productivity Impact</h4>
+                  <div class="space-y-4">
+                    <div class="bg-white rounded-lg p-4 shadow-sm">
+                      <div class="flex items-center justify-between mb-2">
+                        <span class="text-secondary">Coding Work Reduction</span>
+                        <span class="font-bold text-2xl text-green-600">30%</span>
+                      </div>
+                      <p class="text-sm text-secondary">Equivalent to ~2,000 employees</p>
+                    </div>
+
+                    <div class="bg-white rounded-lg p-4 shadow-sm">
+                      <div class="flex items-center justify-between mb-2">
+                        <span class="text-secondary">Developer Productivity Boost</span>
+                        <span class="font-bold text-2xl text-blue-600">20%</span>
+                      </div>
+                      <p class="text-sm text-secondary">Across 18,000 developers</p>
+                    </div>
+                  </div>
+
+                  <div class="mt-4 p-4 bg-amber-50 rounded-lg">
+                    <p class="text-sm text-amber-800">
+                      <i class="fas fa-info-circle mr-2"></i>
+                      Efficiency gains being <strong>reinvested into new growth programs</strong>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Citigroup -->
+          <div id="citigroup" class="mb-16">
+            <div class="bg-white rounded-2xl p-8 shadow-sm border border-base-300">
+              <div class="flex items-center mb-6">
+                <img src="https://kimi-web-img.moonshot.cn/img/uploads.concordia.net/91f55f9be09b784ad5bae9653290d74fac3154e3.png" alt="Citigroup company logo" class="w-16 h-16 rounded-lg mr-4" size="small" aspect="square" query="Citigroup logo" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
+                <div>
+                  <h3 class="font-serif text-3xl font-bold text-primary">Citigroup: Human-Centered AI</h3>
+                  <p class="text-secondary">Employee empowerment through AI literacy</p>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div>
+                  <h4 class="font-semibold text-primary mb-4">&#34;Citi AI Days&#34; Initiative</h4>
+                  <p class="text-secondary mb-4">
+                    From <strong>January 14-15, 2026</strong>, Citibank Korea held a dedicated <a href="https://cm.asiae.co.kr/en/article/2026011609451830358" class="citation-link">two-day event</a> for employees to provide hands-on AI training and practical use case demonstrations.
+                  </p>
+
+                  <div class="bg-purple-50 rounded-lg p-4">
+                    <h5 class="font-medium text-purple-800 mb-2">Citi AI Accelerator Program</h5>
+                    <p class="text-sm text-purple-700">
+                      59 selected &#34;accelerators&#34; in Korea receiving specialized training to lead AI adoption within their teams.
+                    </p>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 class="font-semibold text-primary mb-4">&#34;Human-Centered AI&#34; Philosophy</h4>
+                  <p class="text-secondary mb-4">
+                    The platform emphasizes AI as a complement to employee expertise, enabling <strong>Agentic AI</strong> technology for more advanced and connected work processes.
+                  </p>
+
+                  <div class="pull-quote text-left !text-base !pl-4">
+                    &#34;Designed to reduce the burden of repetitive tasks, freeing employees to focus on higher-value activities&#34;
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Goldman Sachs -->
+          <div id="goldman" class="mb-16">
+            <div class="bg-gradient-to-r from-gray-50 to-slate-50 rounded-2xl p-8">
+              <div class="flex items-center mb-6">
+                <img src="https://kimi-web-img.moonshot.cn/img/imageio.forbes.com/9856abf0ca2f4f5fb93af188b8664271908e3b76.jpg" alt="Goldman Sachs corporate headquarters building exterior" class="w-16 h-16 rounded-lg mr-4" size="small" aspect="square" style="photo" query="Goldman Sachs headquarters building" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
+                <div>
+                  <h3 class="font-serif text-3xl font-bold text-primary">Goldman Sachs: One Goldman Sachs 3.0</h3>
+                  <p class="text-secondary">AI-powered operating model transformation</p>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2">
+                  <h4 class="font-semibold text-primary mb-4">The &#34;Ella AI&#34; Platform</h4>
+                  <p class="text-secondary mb-4">
+                    Goldman Sachs unveiled its <a href="https://www.pymnts.com/earnings/2026/goldman-sachs-leans-into-post-apple-card-strategy/" class="citation-link">&#34;One Goldman Sachs 3.0&#34;</a> operating model, explicitly propelled by its internal &#34;Ella AI&#34; platform. The initiative aims to drive productivity, enhance client experience, and improve profitability.
+                  </p>
+
+                  <div class="bg-white rounded-lg p-4 shadow-sm mb-4">
+                    <h5 class="font-medium text-primary mb-3">Six Initial Automation Workstreams</h5>
+                    <div class="grid grid-cols-2 gap-2 text-sm">
+                      <div class="flex items-center">
+                        <i class="fas fa-user-plus text-accent mr-2"></i>
+                        <span>Client Onboarding</span>
+                      </div>
+                      <div class="flex items-center">
+                        <i class="fas fa-file-alt text-accent mr-2"></i>
+                        <span>Regulatory Reporting</span>
+                      </div>
+                      <div class="flex items-center">
+                        <i class="fas fa-handshake text-accent mr-2"></i>
+                        <span>Lending</span>
+                      </div>
+                      <div class="flex items-center">
+                        <i class="fas fa-shield-alt text-accent mr-2"></i>
+                        <span>Enterprise Risk Management</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="bg-primary text-white rounded-lg p-6 text-center mb-4">
+                    <i class="fas fa-rocket text-2xl mb-2"></i>
+                    <div class="text-xl font-bold">Firm-wide</div>
+                    <div class="text-sm opacity-90">Transformation</div>
+                  </div>
+
+                  <div class="bg-white rounded-lg p-4 shadow-sm">
+                    <h5 class="font-medium text-primary mb-2">Strategic Clarity</h5>
+                    <p class="text-sm text-secondary">
+                      Transitioning from capital-intensive businesses to technology-enabled growth engines.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Canadian Banks -->
+      <section id="canadian-banks" class="py-16 bg-base-200">
+        <div class="max-w-6xl mx-auto px-8">
+          <h2 class="font-serif text-4xl font-bold text-primary mb-12 text-center">Canadian Big 5 Banks: Steady AI Progression</h2>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- RBC -->
+            <div class="bg-white rounded-2xl p-8 shadow-sm">
+              <div class="flex items-center mb-4">
+                <img src="https://kimi-web-img.moonshot.cn/img/g.foolcdn.com/0eb4bcf6091f866101a4afbb22891fdbf4fc6fa2.png" alt="Royal Bank of Canada logo" class="w-12 h-12 rounded-lg mr-3" size="small" aspect="square" query="Royal Bank of Canada logo" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
+                <h3 class="font-serif text-2xl font-bold text-primary">Royal Bank of Canada</h3>
+              </div>
+
+              <h4 class="font-semibold text-primary mb-3">National AI Leadership</h4>
+              <p class="text-secondary mb-4">
+                RBC&#39;s Alex LaPlante appointed to <a href="https://www.rbc.com/newsroom/article/?title=rbcs-alex-laplante-appointed-to-canadas-artificial-intelligence-strategy-task-force" class="citation-link">Canada&#39;s Artificial Intelligence Strategy Task Force</a> on January 13, 2026, demonstrating the bank&#39;s influence in national AI policy development.
+              </p>
+
+              <div class="bg-blue-50 rounded-lg p-4">
+                <h5 class="font-medium text-blue-800 mb-2">Key Focus Areas</h5>
+                <ul class="text-sm text-blue-700 space-y-1">
+                  <li>• World-class AI research centers</li>
+                  <li>• Capital markets innovation</li>
+                  <li>• Employee AI upskilling initiatives</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- TD Bank -->
+            <div class="bg-white rounded-2xl p-8 shadow-sm">
+              <div class="flex items-center mb-4">
+                <img src="https://kimi-web-img.moonshot.cn/img/vsrc.ca/c599d33aff192af465aab075d069c4187384d4de.png" alt="Toronto-Dominion Bank logo" class="w-12 h-12 rounded-lg mr-3" size="small" aspect="square" query="TD Bank logo" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
+                <h3 class="font-serif text-2xl font-bold text-primary">Toronto-Dominion Bank</h3>
+              </div>
+
+              <h4 class="font-semibold text-primary mb-3">Award-Winning Innovation</h4>
+              <p class="text-secondary mb-4">
+                Consistently recognized for AI capabilities and innovative customer experiences. Pioneer in AI-powered chatbots and virtual assistants for customer service enhancement.
+              </p>
+
+              <div class="bg-green-50 rounded-lg p-4">
+                <h5 class="font-medium text-green-800 mb-2">Patent Development</h5>
+                <p class="text-sm text-green-700">
+                  Active development of proprietary AI use cases and patent filings across retail, commercial, and wealth management divisions.
+                </p>
+              </div>
+            </div>
+
+            <!-- Scotiabank -->
+            <div class="bg-white rounded-2xl p-8 shadow-sm">
+              <div class="flex items-center mb-4">
+                <img src="https://kimi-web-img.moonshot.cn/img/images.icon-icons.com/beba8a81a9db290a33bc3e1a620e0030f75fc478.png" alt="Scotiabank logo" class="w-12 h-12 rounded-lg mr-3" size="small" aspect="square" query="Scotiabank logo" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
+                <h3 class="font-serif text-2xl font-bold text-primary">Bank of Nova Scotia</h3>
+              </div>
+
+              <h4 class="font-semibold text-primary mb-3">AskAI Internal Tool</h4>
+              <p class="text-secondary mb-4">
+                <a href="https://www.linkedin.com/posts/yannicklallement_how-agentic-ai-is-the-next-big-wave-in-activity-7350586164409511936-_USJ" class="citation-link">&#34;AskAI&#34; chatbot</a> built on Google Cloud&#39;s Gemini LLM, serving over 10,000 employees with natural language queries for complex banking procedures.
+              </p>
+
+              <div class="bg-purple-50 rounded-lg p-4">
+                <h5 class="font-medium text-purple-800 mb-2">Employee Impact</h5>
+                <p class="text-sm text-purple-700">
+                  Staff report increased confidence, quicker client resolution times, and shorter call lengths through AI assistance.
+                </p>
+              </div>
+            </div>
+
+            <!-- BMO -->
+            <div class="bg-white rounded-2xl p-8 shadow-sm">
+              <div class="flex items-center mb-4">
+                <img src="https://kimi-web-img.moonshot.cn/img/images.credly.com/5703a0fedd619e4eb4534350a0e7b08a21aff9e3.png" alt="Bank of Montreal corporate logo" class="w-12 h-12 rounded-lg mr-3" size="small" aspect="square" query="Bank of Montreal logo" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
+                <h3 class="font-serif text-2xl font-bold text-primary">Bank of Montreal</h3>
+              </div>
+
+              <h4 class="font-semibold text-primary mb-3">Microsoft Azure Partnership</h4>
+              <p class="text-secondary mb-4">
+                Utilizing <a href="https://news.microsoft.com/source/canada/features/ai/canadas-frontier-firms-are-emerging-and-theyre-redefining-ai-leadership/" class="citation-link">Azure OpenAI Service</a> to introduce AI-powered digital assistants, achieving over 80% active user adoption for internal GenAI productivity tools.
+              </p>
+
+              <div class="bg-amber-50 rounded-lg p-4">
+                <h5 class="font-medium text-amber-800 mb-2">Talent Development</h5>
+                <p class="text-sm text-amber-700">
+                  Comprehensive training programs and academic partnerships for building an AI-ready workforce.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- CIBC -->
+          <div class="mt-8 bg-white rounded-2xl p-8 shadow-sm">
+            <div class="flex items-center mb-6">
+              <img src="https://kimi-web-img.moonshot.cn/img/i.pinimg.com/3b9f01ebbae13a5872c38276a868db20b0c38ad8.jpg" alt="CIBC logo" class="w-16 h-16 rounded-lg mr-4" size="small" aspect="square" query="CIBC logo" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
+              <div>
+                <h3 class="font-serif text-3xl font-bold text-primary">Canadian Imperial Bank of Commerce</h3>
+                <p class="text-secondary">New leadership for AI transformation</p>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-6">
+                <h4 class="font-semibold text-primary mb-3">Leadership Appointment</h4>
+                <p class="text-sm text-secondary mb-3">
+                  <a href="https://marketchameleon.com/articles/b/2025/12/4/cibc-executive-leadership-modernization-2026" class="citation-link">Richard Jardim</a> appointed as Chief Technology and Information Officer, effective January 1, 2026.
+                </p>
+                <div class="text-xs text-blue-600 font-medium">Strategic Technology Focus</div>
+              </div>
+
+              <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg p-6">
+                <h4 class="font-semibold text-primary mb-3">AI Training Scale</h4>
+                <p class="text-sm text-secondary mb-3">
+                  Over <a href="https://www.microsoft.com/en-us/industry/microsoft-in-business/customer-story/2026/01/07/modern-banking-reinvented-cibcs-blueprint-for-successful-ai-transformation/" class="citation-link">37,000 training courses</a> completed across the organization.
+                </p>
+                <div class="text-xs text-green-600 font-medium">Workforce Readiness</div>
+              </div>
+
+              <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg p-6">
+                <h4 class="font-semibold text-primary mb-3">Process Transformation</h4>
+                <p class="text-sm text-secondary mb-3">
+                  Transformed a 10-hour manual process into a 10-minute automated workflow using AI.
+                </p>
+                <div class="text-xs text-purple-600 font-medium">60x Efficiency Gain</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Industry Trends -->
+      <section id="industry-trends" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-8">
+          <h2 class="font-serif text-4xl font-bold text-primary mb-12 text-center">Industry-Wide AI Trends for 2026</h2>
+
+          <!-- Autonomous AI -->
+          <div id="autonomous-ai" class="mb-16">
+            <div class="bg-gradient-to-br from-slate-50 to-blue-50 rounded-2xl p-8">
+              <h3 class="font-serif text-3xl font-bold text-primary mb-6">The Rise of Autonomous AI and AI Agents</h3>
+
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div>
+                  <h4 class="font-semibold text-primary mb-4">Era of Autonomous Intelligence</h4>
+                  <p class="text-secondary mb-4">
+                    A <a href="https://news.futunn.com/en/post/67153861/2026-ushers-in-the-dawn-of-autonomous-ai-bank-of" class="citation-link">January 9, 2026 report</a> from Bank of America predicted that 2026 would mark the beginning of the <strong>&#34;era of autonomous artificial intelligence,&#34;</strong> where software capable of performing tasks autonomously would take a dominant position.
+                  </p>
+
+                  <div class="bg-white rounded-lg p-4 shadow-sm">
+                    <h5 class="font-medium text-primary mb-3">Key Characteristics</h5>
+                    <ul class="text-sm text-secondary space-y-2">
+                      <li class="flex items-center">
+                        <i class="fas fa-robot text-accent mr-2"></i>
+                        <span>Proactive, autonomous systems</span>
+                      </li>
+                      <li class="flex items-center">
+                        <i class="fas fa-cogs text-accent mr-2"></i>
+                        <span>Complex, multi-step task execution</span>
+                      </li>
+                      <li class="flex items-center">
+                        <i class="fas fa-brain text-accent mr-2"></i>
+                        <span>Goal-oriented planning and action</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 class="font-semibold text-primary mb-4">Banking Industry Adoption</h4>
+                  <p class="text-secondary mb-4">
+                    A <a href="https://www.ciodive.com/news/banks-agentic-ai-scale-2026/809532/" class="citation-link">CIO Dive report</a> noted that advances in AI models and enterprise tools will enable banks to take greater advantage of agentic AI in 2026, particularly in software engineering, risk management, and customer service.
+                  </p>
+
+                  <div class="bg-blue-100 rounded-lg p-4">
+                    <h5 class="font-medium text-blue-800 mb-2">Market Impact</h5>
+                    <p class="text-sm text-blue-700">
+                      Banks will increasingly turn to major cloud providers to build AI agents aligned with their brand, compliance, and service standards.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Workforce Impact -->
+          <div id="workforce-impact" class="mb-16">
+            <div class="bg-gradient-to-br from-red-50 to-orange-50 rounded-2xl p-8">
+              <h3 class="font-serif text-3xl font-bold text-primary mb-6">AI&#39;s Impact on the Banking Workforce</h3>
+
+              <div class="pull-quote !border-accent !bg-white">
+                &#34;Technology now allows the company to do more with the same amount of people or less people&#34;
+                <footer class="text-sm text-secondary mt-2">— Brian Moynihan, Bank of America CEO</footer>
+              </div>
+
+              <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8">
+                <div>
+                  <h4 class="font-semibold text-primary mb-4">Job Displacement Reality</h4>
+                  <p class="text-secondary mb-4">
+                    An <a href="https://www.axios.com/local/charlotte/2026/01/16/bank-america-wells-fargo-ai-job-cuts" class="citation-link">Axios report</a> revealed that growing numbers of jobs at major banks in hubs like Charlotte are now being performed by AI, with headcount expected to &#34;drift down&#34; through strategic attrition.
+                  </p>
+
+                  <div class="bg-white rounded-lg p-4 shadow-sm">
+                    <h5 class="font-medium text-primary mb-2">Bank of America Impact</h5>
+                    <ul class="text-sm text-secondary space-y-1">
+                      <li>• 30% reduction in coding work</li>
+                      <li>• Equivalent to ~2,000 employees</li>
+                      <li>• Managed through attrition, not layoffs</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 class="font-semibold text-primary mb-4">Task Automation Examples</h4>
+                  <div class="space-y-4">
+                    <div class="bg-white rounded-lg p-4 shadow-sm">
+                      <h6 class="font-medium text-primary mb-2">Software Development</h6>
+                      <p class="text-sm text-secondary">AI-powered coding agents boosting developer productivity by 20%</p>
+                    </div>
+
+                    <div class="bg-white rounded-lg p-4 shadow-sm">
+                      <h6 class="font-medium text-primary mb-2">Customer Service</h6>
+                      <p class="text-sm text-secondary">Virtual assistants handling millions of customer interactions</p>
+                    </div>
+
+                    <div class="bg-white rounded-lg p-4 shadow-sm">
+                      <h6 class="font-medium text-primary mb-2">Risk Management</h6>
+                      <p class="text-sm text-secondary">Automated fraud detection and regulatory reporting</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 class="font-semibold text-primary mb-4">Strategic Workforce Management</h4>
+                  <p class="text-secondary mb-4">
+                    Banks are being more selective about refilling roles as they become vacant, focusing on strategic hiring rather than mass layoffs.
+                  </p>
+
+                  <div class="bg-orange-100 rounded-lg p-4">
+                    <h5 class="font-medium text-orange-800 mb-2">Long-term Vision</h5>
+                    <p class="text-sm text-orange-700">
+                      AI handling complex, multi-step tasks independently, fundamentally redefining human-AI collaboration models.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- M&amp;A and Regulatory -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- M&amp;A Drivers -->
+            <div class="bg-gradient-to-br from-green-50 to-teal-50 rounded-2xl p-8">
+              <h3 class="font-serif text-2xl font-bold text-primary mb-6">AI as M&amp;A Catalyst</h3>
+              <p class="text-secondary mb-4">
+                A <a href="https://www.bankingdive.com/news/2026-banking-trends-artificial-intelligence-ai-mergers-acquisitions-regulation-bank-charters/808818/" class="citation-link">Banking Dive report</a> highlighted AI as a defining force driving enterprise strategy and M&amp;A activity, as banks seek to acquire technological capabilities and talent.
+              </p>
+
+              <div class="bg-white rounded-lg p-4 shadow-sm">
+                <h4 class="font-medium text-primary mb-3">Expected M&amp;A Trends</h4>
+                <ul class="text-sm text-secondary space-y-2">
+                  <li>• &#34;Dealmaking gold rush&#34; in 2026</li>
+                  <li>• Regional banks seeking scale</li>
+                  <li>• Technology capability acquisitions</li>
+                  <li>• Smaller banks facing tech cost pressures</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Regulatory Considerations -->
+            <div class="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl p-8">
+              <h3 class="font-serif text-2xl font-bold text-primary mb-6">Regulatory Framework</h3>
+              <p class="text-secondary mb-4">
+                An <a href="https://www.llrx.com/2026/01/ai-in-finance-and-banking-january-18-2026/" class="citation-link">LLRX report</a> noted increasing focus on managing AI risks, with the NCUA publishing supervisory considerations for vendor due diligence, data governance, and cybersecurity.
+              </p>
+
+              <div class="bg-white rounded-lg p-4 shadow-sm">
+                <h4 class="font-medium text-primary mb-3">Key Considerations</h4>
+                <ul class="text-sm text-secondary space-y-2">
+                  <li>• Algorithmic bias prevention</li>
+                  <li>• Data privacy protection</li>
+                  <li>• Explainable AI decisions</li>
+                  <li>• Robust governance frameworks</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="py-12 bg-primary text-white">
+        <div class="max-w-4xl mx-auto px-8 text-center">
+          <p class="text-lg font-medium mb-4">AI/ML Developments in North American Banking</p>
+          <p class="text-gray-300 mb-6">Analysis of strategic developments and industry trends during January 2026</p>
+          <div class="text-sm text-gray-400">
+            <p>All data sourced from publicly available financial reports, press releases, and industry analysis</p>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <script>
+        // Mobile TOC Toggle
+        function toggleMobileTOC() {
+            const toc = document.getElementById('tableOfContents');
+            toc.classList.toggle('mobile-open');
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Close mobile TOC when clicking outside
+        document.addEventListener('click', function(e) {
+            const toc = document.getElementById('tableOfContents');
+            const toggleBtn = document.querySelector('button.lg\\:hidden');
+            
+            if (!toc.contains(e.target) && !toggleBtn.contains(e.target)) {
+                toc.classList.remove('mobile-open');
+            }
+        });
+
+        // Initialize Mermaid with enhanced theme and contrast
+        mermaid.initialize({ 
+            startOnLoad: true, 
+            theme: 'base',
+            themeVariables: {
+                // Primary colors with high contrast
+                primaryColor: '#ffffff',
+                primaryTextColor: '#1e293b',
+                primaryBorderColor: '#1e293b',
+                lineColor: '#64748b',
+                
+                // Secondary colors
+                secondaryColor: '#f8fafc',
+                secondaryTextColor: '#1e293b',
+                secondaryBorderColor: '#64748b',
+                
+                // Tertiary colors
+                tertiaryColor: '#e2e8f0',
+                tertiaryTextColor: '#1e293b',
+                tertiaryBorderColor: '#94a3b8',
+                
+                // Background and text
+                background: '#ffffff',
+                mainBkg: '#ffffff',
+                secondBkg: '#f8fafc',
+                tertiaryBkg: '#f1f5f9',
+                
+                // Text styling
+                textColor: '#1e293b',
+                darkTextColor: '#1e293b',
+                nodeTextColor: '#1e293b',
+                
+                // Edge styling
+                edgeLabelBackground: '#ffffff',
+                
+                // Timeline specific
+                cScale0: '#1d4ed8',
+                cScale1: '#16a34a', 
+                cScale2: '#d97706',
+                cScale3: '#be185d',
+                
+                // Ensure high contrast for all elements
+                taskBkgColor: '#ffffff',
+                taskTextColor: '#1e293b',
+                activeTaskBkgColor: '#3b82f6',
+                activeTaskBorderColor: '#1d4ed8',
+                
+                // Grid and section colors for timelines
+                gridColor: '#e2e8f0',
+                section0: '#dbeafe',
+                section1: '#dcfce7',
+                section2: '#fef3c7', 
+                section3: '#fce7f3',
+                
+                // Timeline text colors
+                todayLineColor: '#3b82f6',
+                criticalColor: '#dc2626',
+                criticalTextColor: '#ffffff',
+                criticalBorderColor: '#b91c1c'
+            },
+            timeline: {
+                padding: 30,
+                useMaxWidth: false,
+                rightAngles: false
+            },
+            flowchart: {
+                useMaxWidth: false,
+                htmlLabels: true
+            },
+            sequence: {
+                useMaxWidth: false,
+                wrap: true
+            }
+        });
+
+        // Initialize Mermaid Controls for zoom and pan
+        function initializeMermaidControls() {
+            const containers = document.querySelectorAll('.mermaid-container');
+
+            containers.forEach(container => {
+            const mermaidElement = container.querySelector('.mermaid');
+            let scale = 1;
+            let isDragging = false;
+            let startX, startY, translateX = 0, translateY = 0;
+
+            // 触摸相关状态
+            let isTouch = false;
+            let touchStartTime = 0;
+            let initialDistance = 0;
+            let initialScale = 1;
+            let isPinching = false;
+
+            // Zoom controls
+            const zoomInBtn = container.querySelector('.zoom-in');
+            const zoomOutBtn = container.querySelector('.zoom-out');
+            const resetBtn = container.querySelector('.reset-zoom');
+            const fullscreenBtn = container.querySelector('.fullscreen');
+
+            function updateTransform() {
+                mermaidElement.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+
+                if (scale > 1) {
+                container.classList.add('zoomed');
+                } else {
+                container.classList.remove('zoomed');
+                }
+
+                mermaidElement.style.cursor = isDragging ? 'grabbing' : 'grab';
+            }
+
+            if (zoomInBtn) {
+                zoomInBtn.addEventListener('click', () => {
+                scale = Math.min(scale * 1.25, 4);
+                updateTransform();
+                });
+            }
+
+            if (zoomOutBtn) {
+                zoomOutBtn.addEventListener('click', () => {
+                scale = Math.max(scale / 1.25, 0.3);
+                if (scale <= 1) {
+                    translateX = 0;
+                    translateY = 0;
+                }
+                updateTransform();
+                });
+            }
+
+            if (resetBtn) {
+                resetBtn.addEventListener('click', () => {
+                scale = 1;
+                translateX = 0;
+                translateY = 0;
+                updateTransform();
+                });
+            }
+
+            if (fullscreenBtn) {
+                fullscreenBtn.addEventListener('click', () => {
+                if (container.requestFullscreen) {
+                    container.requestFullscreen();
+                } else if (container.webkitRequestFullscreen) {
+                    container.webkitRequestFullscreen();
+                } else if (container.msRequestFullscreen) {
+                    container.msRequestFullscreen();
+                }
+                });
+            }
+
+            // Mouse Events
+            mermaidElement.addEventListener('mousedown', (e) => {
+                if (isTouch) return; // 如果是触摸设备，忽略鼠标事件
+
+                isDragging = true;
+                startX = e.clientX - translateX;
+                startY = e.clientY - translateY;
+                mermaidElement.style.cursor = 'grabbing';
+                updateTransform();
+                e.preventDefault();
+            });
+
+            document.addEventListener('mousemove', (e) => {
+                if (isDragging && !isTouch) {
+                translateX = e.clientX - startX;
+                translateY = e.clientY - startY;
+                updateTransform();
+                }
+            });
+
+            document.addEventListener('mouseup', () => {
+                if (isDragging && !isTouch) {
+                isDragging = false;
+                mermaidElement.style.cursor = 'grab';
+                updateTransform();
+                }
+            });
+
+            document.addEventListener('mouseleave', () => {
+                if (isDragging && !isTouch) {
+                isDragging = false;
+                mermaidElement.style.cursor = 'grab';
+                updateTransform();
+                }
+            });
+
+            // 获取两点之间的距离
+            function getTouchDistance(touch1, touch2) {
+                return Math.hypot(
+                touch2.clientX - touch1.clientX,
+                touch2.clientY - touch1.clientY
+                );
+            }
+
+            // Touch Events - 触摸事件处理
+            mermaidElement.addEventListener('touchstart', (e) => {
+                isTouch = true;
+                touchStartTime = Date.now();
+
+                if (e.touches.length === 1) {
+                // 单指拖动
+                isPinching = false;
+                isDragging = true;
+
+                const touch = e.touches[0];
+                startX = touch.clientX - translateX;
+                startY = touch.clientY - translateY;
+
+                } else if (e.touches.length === 2) {
+                // 双指缩放
+                isPinching = true;
+                isDragging = false;
+
+                const touch1 = e.touches[0];
+                const touch2 = e.touches[1];
+                initialDistance = getTouchDistance(touch1, touch2);
+                initialScale = scale;
+                }
+
+                e.preventDefault();
+            }, { passive: false });
+
+            mermaidElement.addEventListener('touchmove', (e) => {
+                if (e.touches.length === 1 && isDragging && !isPinching) {
+                // 单指拖动
+                const touch = e.touches[0];
+                translateX = touch.clientX - startX;
+                translateY = touch.clientY - startY;
+                updateTransform();
+
+                } else if (e.touches.length === 2 && isPinching) {
+                // 双指缩放
+                const touch1 = e.touches[0];
+                const touch2 = e.touches[1];
+                const currentDistance = getTouchDistance(touch1, touch2);
+
+                if (initialDistance > 0) {
+                    const newScale = Math.min(Math.max(
+                    initialScale * (currentDistance / initialDistance),
+                    0.3
+                    ), 4);
+                    scale = newScale;
+                    updateTransform();
+                }
+                }
+
+                e.preventDefault();
+            }, { passive: false });
+
+            mermaidElement.addEventListener('touchend', (e) => {
+                // 重置状态
+                if (e.touches.length === 0) {
+                isDragging = false;
+                isPinching = false;
+                initialDistance = 0;
+
+                // 延迟重置isTouch，避免鼠标事件立即触发
+                setTimeout(() => {
+                    isTouch = false;
+                }, 100);
+                } else if (e.touches.length === 1 && isPinching) {
+                // 从双指变为单指，切换为拖动模式
+                isPinching = false;
+                isDragging = true;
+
+                const touch = e.touches[0];
+                startX = touch.clientX - translateX;
+                startY = touch.clientY - translateY;
+                }
+
+                updateTransform();
+            });
+
+            mermaidElement.addEventListener('touchcancel', (e) => {
+                isDragging = false;
+                isPinching = false;
+                initialDistance = 0;
+
+                setTimeout(() => {
+                isTouch = false;
+                }, 100);
+
+                updateTransform();
+            });
+
+            // Enhanced wheel zoom with better center point handling
+            container.addEventListener('wheel', (e) => {
+                e.preventDefault();
+                const rect = container.getBoundingClientRect();
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                const delta = e.deltaY > 0 ? 0.9 : 1.1;
+                const newScale = Math.min(Math.max(scale * delta, 0.3), 4);
+
+                // Adjust translation to zoom towards center
+                if (newScale !== scale) {
+                const scaleDiff = newScale / scale;
+                translateX = translateX * scaleDiff;
+                translateY = translateY * scaleDiff;
+                scale = newScale;
+
+                if (scale <= 1) {
+                    translateX = 0;
+                    translateY = 0;
+                }
+
+                updateTransform();
+                }
+            });
+
+            // Initialize display
+            updateTransform();
+            });
+        }
+
+        // Initialize controls after mermaid renders
+        setTimeout(initializeMermaidControls, 1000);
+    </script>
+  
+
+</body></html>
