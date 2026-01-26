@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>North American Banking AI Strategic Intelligence: Jan 21-26, 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#0f172a',    /* Deep Navy */
+                        secondary: '#475569',  /* Slate */
+                        accent: '#2563eb',     /* Cobalt Blue */
+                        neutral: '#f8fafc',    /* Light Gray */
+                        'base-100': '#ffffff',
+                        'base-200': '#f1f5f9',
+                        'base-300': '#e2e8f0',
+                        'rbc-blue': '#0051A5',
+                        'td-green': '#008b27',
+                        'scotia-red': '#ec111a',
+                        'bmo-blue': '#0079C1',
+                        'cibc-red': '#c41230'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Mermaid Diagram Styling */
+        .mermaid-container {
+            display: flex;
+            justify-content: center;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            overflow-x: auto;
+        }
+        
+        /* Navigation & Layout */
+        body { overflow-x: hidden; }
+        
+        .toc-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 280px;
+            height: 100vh;
+            background: #ffffff;
+            border-right: 1px solid #e2e8f0;
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 2rem 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .main-content {
+            margin-left: 280px;
+            min-height: 100vh;
+        }
+
+        .hero-overlay {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(37, 99, 235, 0.85) 100%);
+        }
+
+        .section-header {
+            scroll-margin-top: 4rem;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 1024px) {
+            .toc-fixed { transform: translateX(-100%); }
+            .toc-fixed.mobile-open { transform: translateX(0); }
+            .main-content { margin-left: 0; }
+        }
+    </style>
+    <base target="_blank">
+</head>
+
+<body class="bg-neutral font-sans text-primary">
+
+    <button class="lg:hidden fixed top-4 left-4 z-50 bg-white p-3 rounded-lg shadow-lg border border-base-300 hover:bg-base-200 transition-colors" onclick="toggleMobileTOC()">
+        <i class="fas fa-bars text-primary text-xl"></i>
+    </button>
+
+    <nav class="toc-fixed shadow-xl" id="tableOfContents">
+        <div class="mb-8">
+            <h3 class="font-serif font-bold text-xl text-primary mb-6 border-b pb-2">Contents</h3>
+            
+            <div class="mb-6">
+                <h4 class="font-bold text-xs uppercase tracking-widest text-primary mb-3">Executive Brief</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#executive-summary" class="block py-1 pl-4 text-secondary hover:text-accent font-medium transition-colors border-l-2 border-transparent hover:border-accent">Executive Summary</a></li>
+                    <li><a href="#market-landscape" class="block py-1 pl-4 text-secondary hover:text-accent font-medium transition-colors border-l-2 border-transparent hover:border-accent">Market Landscape Map</a></li>
+                    <li><a href="#policy-landscape" class="block py-1 pl-4 text-secondary hover:text-accent font-medium transition-colors border-l-2 border-transparent hover:border-accent">Policy & Regulation</a></li>
+                </ul>
+            </div>
+
+            <div class="mb-6">
+                <h4 class="font-bold text-xs uppercase tracking-widest text-primary mb-3">Market Leaders</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#jpmorgan" class="block py-1 pl-4 text-secondary hover:text-accent font-medium transition-colors border-l-2 border-transparent hover:border-accent">JPMorgan: Scale</a></li>
+                    <li><a href="#capital-one" class="block py-1 pl-4 text-secondary hover:text-accent font-medium transition-colors border-l-2 border-transparent hover:border-accent">Capital One: M&A</a></li>
+                </ul>
+            </div>
+
+            <div class="mb-6">
+                <h4 class="font-bold text-xs uppercase tracking-widest text-primary mb-3">Efficiency & Workforce</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#boa-goldman" class="block py-1 pl-4 text-secondary hover:text-accent font-medium transition-colors border-l-2 border-transparent hover:border-accent">BoA & Goldman Sachs</a></li>
+                    <li><a href="#morgan-stanley" class="block py-1 pl-4 text-secondary hover:text-accent font-medium transition-colors border-l-2 border-transparent hover:border-accent">Morgan Stanley & Citi</a></li>
+                </ul>
+            </div>
+
+            <div class="mb-6">
+                <h4 class="font-bold text-xs uppercase tracking-widest text-primary mb-3">Challengers</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#challengers" class="block py-1 pl-4 text-secondary hover:text-accent font-medium transition-colors border-l-2 border-transparent hover:border-accent">Ally, Wells, PNC, Visa</a></li>
+                </ul>
+            </div>
+
+            <div class="mb-6">
+                <h4 class="font-bold text-xs uppercase tracking-widest text-primary mb-3">Canadian Landscape</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#canadian-deep-dive" class="block py-1 pl-4 text-secondary hover:text-accent font-medium transition-colors border-l-2 border-transparent hover:border-accent">TD, RBC & Scotiabank</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="mt-auto pt-6 border-t border-base-300">
+            <p class="text-xs text-secondary mb-1 uppercase font-bold">Reporting Period</p>
+            <p class="text-sm font-serif italic">Jan 21 - Jan 26, 2026</p>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        
+        <section class="relative min-h-[60vh] flex items-center bg-primary overflow-hidden">
+            <div class="absolute inset-0">
+                <img src="https://kimi-web-img.moonshot.cn/img/cfotech.in/7d4926ff5bfb9939611f8bdc6a5c90038ecec70d.webp" alt="Banking AI Background" class="w-full h-full object-cover opacity-40"/>
+                <div class="hero-overlay absolute inset-0 mix-blend-multiply"></div>
+            </div>
+
+            <div class="relative z-10 w-full max-w-6xl mx-auto px-8 py-12">
+                <div class="flex flex-col md:flex-row items-end justify-between gap-8">
+                    <div class="md:w-2/3">
+                        <div class="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-widest text-accent bg-white/10 border border-white/20 rounded-full uppercase">
+                            Intelligence Briefing
+                        </div>
+                        <h1 class="font-serif text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+                            North American Banking <br/>
+                            <span class="italic text-blue-200">AI Strategic Intelligence</span>
+                        </h1>
+                        <p class="text-lg text-white/80 max-w-2xl font-light">
+                            Analysis of the pivotal week of January 21-26, 2026: The shift from experimentation to industrial-scale deployment.
+                        </p>
+                    </div>
+                    
+                    <div class="flex gap-4">
+                        <div class="bg-white/10 backdrop-blur-md p-4 rounded-lg border border-white/20 text-center">
+                            <div class="text-2xl font-bold text-white">500+</div>
+                            <div class="text-[10px] uppercase text-white/70 tracking-wider">JPM Use Cases</div>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-md p-4 rounded-lg border border-white/20 text-center">
+                            <div class="text-2xl font-bold text-white">$5.15B</div>
+                            <div class="text-[10px] uppercase text-white/70 tracking-wider">M&A Value</div>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-md p-4 rounded-lg border border-white/20 text-center">
+                            <div class="text-2xl font-bold text-white">166%</div>
+                            <div class="text-[10px] uppercase text-white/70 tracking-wider">Ally EPS Growth</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="executive-summary" class="py-16 section-header">
+            <div class="max-w-6xl mx-auto px-8">
+                <h2 class="font-serif text-3xl font-bold text-primary mb-8 border-l-4 border-accent pl-4">Executive Summary</h2>
+                <div class="prose prose-lg max-w-none text-secondary mb-10">
+                    <p class="mb-6">
+                        The week of January 21-26, 2026, confirmed that AI is now a primary driver of bank earnings. <strong>Ally Financial</strong> reported a stunning 166% increase in EPS (Jan 23), explicitly citing their <strong>ally.ai</strong> platform for improved credit performance. 
+                    </p>
+                    <p>
+                        <strong>Policy pressures are mounting.</strong> With the CFPB's Section 1071 compliance deadline passing on Jan 16 and the EU AI Act's high-risk rules looming for August, banks are racing to harden their governance frameworks. This "Compliance Crunch" is driving a wedge between Tier 1 players who can automate reporting (JPM, Capital One) and smaller peers struggling with data overhead.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="market-landscape" class="py-12 bg-white border-t border-slate-100">
+            <div class="max-w-6xl mx-auto px-8">
+                <h3 class="font-bold text-sm uppercase tracking-widest text-secondary mb-6 text-center">Strategic Positioning Matrix (Jan 2026)</h3>
+                <div class="mermaid-container">
+                    <div class="mermaid">
+                        quadrantChart
+                            title AI Maturity vs Transparency
+                            x-axis Low Transparency --> High Transparency
+                            y-axis Low Innovation Impact --> High Innovation Impact
+                            quadrant-1 Market Leaders
+                            quadrant-2 Hidden Gems / Risks
+                            quadrant-3 Laggards
+                            quadrant-4 Governance Focused
+                            "TD Bank": [0.25, 0.90]
+                            "JPMorgan Chase": [0.90, 0.95]
+                            "Capital One": [0.60, 0.85]
+                            "RBC": [0.85, 0.75]
+                            "Ally Financial": [0.70, 0.80]
+                            "Wells Fargo": [0.55, 0.65]
+                            "PNC Bank": [0.65, 0.60]
+                    </div>
+                </div>
+                <p class="text-xs text-center text-slate-500 italic mt-4">
+                    Note: TD Bank is isolated in the "High Innovation / Low Transparency" quadrant—a high-risk zone where technical value is not priced in by the market.
+                </p>
+            </div>
+        </section>
+
+        <section id="policy-landscape" class="py-16 bg-neutral section-header">
+            <div class="max-w-6xl mx-auto px-8">
+                <h2 class="font-serif text-3xl font-bold text-primary mb-10 text-center">The Policy & Compliance Landscape</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-xl border-t-4 border-blue-600 shadow-sm">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="font-bold text-lg text-primary">USA: CFPB</h3>
+                            <span class="text-[10px] bg-red-100 text-red-700 px-2 py-1 rounded font-bold uppercase">Deadline Passed</span>
+                        </div>
+                        <p class="text-sm text-secondary mb-4">
+                            <strong>Section 1071 (Small Biz Data):</strong> Tier 2 lenders hit their compliance deadline on Jan 16, 2026. Banks using AI for auto-classification of loan applicants gained a significant speed advantage.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl border-t-4 border-red-600 shadow-sm">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="font-bold text-lg text-primary">Canada: OSFI</h3>
+                            <span class="text-[10px] bg-yellow-100 text-yellow-700 px-2 py-1 rounded font-bold uppercase">Preparation Year</span>
+                        </div>
+                        <p class="text-sm text-secondary mb-4">
+                            <strong>Guideline E-23:</strong> Full effect May 1, 2027. 2026 is the critical "build year" for Model Risk Management frameworks.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl border-t-4 border-indigo-600 shadow-sm">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="font-bold text-lg text-primary">Global: EU AI Act</h3>
+                            <span class="text-[10px] bg-orange-100 text-orange-700 px-2 py-1 rounded font-bold uppercase">Looming Impact</span>
+                        </div>
+                        <p class="text-sm text-secondary mb-4">
+                            <strong>High-Risk Systems:</strong> Rules for credit scoring AI take effect Aug 2026. US banks with EU subsidiaries are currently auditing "black box" models.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="jpmorgan" class="py-16 bg-white section-header">
+            <div class="max-w-6xl mx-auto px-8">
+                <h2 class="font-serif text-3xl font-bold text-primary mb-10 text-center">Tier 1: Scale Leaders</h2>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                    <div class="bg-gray-50 rounded-xl p-8 border border-slate-100">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white"><i class="fas fa-university"></i></div>
+                            <h3 class="font-serif text-2xl font-bold text-primary">JPMorgan Chase</h3>
+                        </div>
+                        <p class="text-secondary mb-6">
+                            <strong>Jan 21 (Davos):</strong> Jamie Dimon confirmed 500+ production AI use cases. The Wealth Management Outlook (published Jan 2026) predicts "Agentic models will reach human-level performance by Spring 2026."
+                        </p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-white p-4 rounded shadow-sm text-center">
+                                <span class="block text-2xl font-bold text-accent">$2B</span>
+                                <span class="text-xs uppercase text-secondary">Value Generated</span>
+                            </div>
+                            <div class="bg-white p-4 rounded shadow-sm text-center">
+                                <span class="block text-2xl font-bold text-accent">Spring '26</span>
+                                <span class="text-xs uppercase text-secondary">Agentic Milestone</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="capital-one" class="bg-gradient-to-br from-blue-50 to-white rounded-xl p-8 border border-blue-100">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white"><i class="fas fa-wallet"></i></div>
+                            <h3 class="font-serif text-2xl font-bold text-primary">Capital One</h3>
+                        </div>
+                        <p class="text-secondary mb-6">
+                            <strong>Jan 22 (Deal):</strong> $5.15B acquisition of Brex. This moves Capital One vertically into the "AI Spend Management" layer, bypassing legacy systems.
+                        </p>
+                        <div class="bg-white p-4 rounded shadow-sm border-l-4 border-blue-600">
+                            <span class="block text-sm font-bold text-primary mb-1">Strategic Rationale</span>
+                            <span class="text-xs text-secondary">Acquiring an AI-native operating system for commercial payments.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="boa-goldman" class="py-16 bg-neutral section-header">
+            <div class="max-w-6xl mx-auto px-8">
+                <h2 class="font-serif text-3xl font-bold text-primary mb-10 text-center">Operating Efficiency</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white p-8 rounded-xl shadow-sm border border-slate-200">
+                        <div class="flex justify-between items-start mb-6">
+                            <h3 class="font-serif text-2xl font-bold text-primary">Bank of America</h3>
+                            <span class="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded uppercase">Efficiency</span>
+                        </div>
+                        <div class="mb-6">
+                            <span class="text-4xl font-bold text-primary block mb-1">$4.5B</span>
+                            <span class="text-sm text-secondary uppercase tracking-widest">2026 AI Budget</span>
+                        </div>
+                        <p class="text-secondary text-sm mb-4">
+                            CEO Brian Moynihan's Jan 24 update emphasized that AI is now a deflationary force on expenses. 30% developer productivity boost confirmed.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-xl shadow-sm border border-slate-200">
+                        <div class="flex justify-between items-start mb-6">
+                            <h3 class="font-serif text-2xl font-bold text-primary">Goldman Sachs</h3>
+                            <span class="bg-slate-100 text-slate-700 text-xs font-bold px-2 py-1 rounded uppercase">Operations</span>
+                        </div>
+                        <div class="mb-6">
+                            <span class="text-4xl font-bold text-primary block mb-1">GS 3.0</span>
+                            <span class="text-sm text-secondary uppercase tracking-widest">Operating Model</span>
+                        </div>
+                        <p class="text-secondary text-sm mb-4">
+                            Deployment of "Ella AI" and "Devin" autonomous coding agents has scaled to 12,000 developers. Focus is on automating risk modeling.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="morgan-stanley" class="py-16 bg-white section-header">
+            <div class="max-w-6xl mx-auto px-8">
+                <h2 class="font-serif text-3xl font-bold text-primary mb-10 text-center">Workforce Transformation</h2>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="bg-gray-50 p-8 rounded-xl border border-slate-100">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="font-serif text-2xl font-bold text-primary">Morgan Stanley</h3>
+                            <span class="text-xs bg-slate-200 text-slate-800 px-2 py-1 rounded">Jan 11, 2026</span>
+                        </div>
+                        <h4 class="font-bold text-sm uppercase text-accent mb-4">New Managing Directors (AI Leaders)</h4>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-center bg-white p-3 rounded shadow-sm">
+                                <i class="fas fa-user-tie text-slate-400 mr-3"></i>
+                                <div>
+                                    <span class="block text-sm font-bold text-primary">Madhu Coimbatore</span>
+                                    <span class="block text-xs text-secondary">Head of Firmwide AI Platform</span>
+                                </div>
+                            </li>
+                            <li class="flex items-center bg-white p-3 rounded shadow-sm">
+                                <i class="fas fa-user-tie text-slate-400 mr-3"></i>
+                                <div>
+                                    <span class="block text-sm font-bold text-primary">Shailesh Gavankar</span>
+                                    <span class="block text-xs text-secondary">Head of AI Strategy</span>
+                                </div>
+                            </li>
+                        </ul>
+                        <p class="text-xs text-secondary italic">
+                            Promoting AI platform leaders to MD signals that technological infrastructure is now as valued as deal-making capability.
+                        </p>
+                    </div>
+
+                    <div id="citi-workforce" class="bg-white p-8 rounded-xl border-l-4 border-red-500 shadow-lg">
+                        <h3 class="font-serif text-2xl font-bold text-primary mb-2">Citi: "Judged on Results"</h3>
+                        <span class="text-xs font-bold text-red-500 uppercase tracking-widest mb-6 block">Jan 14, 2026 Memo</span>
+                        
+                        <div class="prose prose-sm text-secondary mb-6">
+                            <p>
+                                CEO Jane Fraser sent a memo to <strong>200,000 employees</strong> explicitly linking ongoing job cuts to the bank's automation push.
+                            </p>
+                            <blockquote class="italic text-primary border-l-2 border-red-200 pl-4 my-4">
+                                "Over time, we can expect automation, AI and process simplification to reshape how work gets done."
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="challengers" class="py-16 bg-neutral section-header">
+            <div class="max-w-6xl mx-auto px-8">
+                <h2 class="font-serif text-3xl font-bold text-primary mb-10 text-center">Challengers & Innovators (Expanded)</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    
+                    <div class="bg-white p-6 rounded-xl border-t-4 border-purple-500 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold text-lg text-primary">Ally Financial</h4>
+                            <span class="text-[10px] bg-purple-100 text-purple-700 px-2 py-1 rounded font-bold uppercase">Earnings Beat</span>
+                        </div>
+                        <p class="text-xs text-secondary mb-4 italic">Jan 23, 2026 Earnings</p>
+                        <p class="text-sm text-secondary mb-4">
+                            Reported <strong>166% EPS growth</strong>. Explicitly credited the <strong>ally.ai</strong> platform for faster underwriting and reduced credit losses in auto loans.
+                        </p>
+                        <div class="bg-purple-50 p-3 rounded text-center">
+                            <span class="block text-xl font-bold text-purple-700">4 Million</span>
+                            <span class="text-[9px] uppercase text-purple-900">Applications Processed</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl border-t-4 border-blue-500 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold text-lg text-primary">U.S. Bank</h4>
+                            <span class="text-[10px] bg-blue-100 text-blue-700 px-2 py-1 rounded font-bold uppercase">2026 Outlook</span>
+                        </div>
+                        <p class="text-xs text-secondary mb-4 italic">Jan 2026 Investment Report</p>
+                        <p class="text-sm text-secondary mb-4">
+                            Identified "AI-Driven Productivity" as the primary driver for 2026 equity growth. Rolling out "Smart Assistant" to wealth clients.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl border-t-4 border-yellow-500 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold text-lg text-primary">Wells Fargo</h4>
+                            <span class="text-[10px] bg-yellow-100 text-yellow-700 px-2 py-1 rounded font-bold uppercase">Talent</span>
+                        </div>
+                        <p class="text-xs text-secondary mb-4 italic">Jan 26 Strategic Hire</p>
+                        <p class="text-sm text-secondary mb-4">
+                            Poached <strong>Faraz Shafiq</strong> from AWS to lead Enterprise AI. Pivoting "Fargo" assistant to proactive agentic workflows.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl border-t-4 border-orange-500 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold text-lg text-primary">PNC Bank</h4>
+                            <span class="text-[10px] bg-orange-100 text-orange-700 px-2 py-1 rounded font-bold uppercase">Efficiency</span>
+                        </div>
+                        <p class="text-sm text-secondary mb-4">
+                            CEO Bill Demchak cited a <strong>30-point operating leverage gain</strong> since 2022 directly attributed to their $700M AI spend.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl border-t-4 border-indigo-500 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold text-lg text-primary">Visa</h4>
+                            <span class="text-[10px] bg-indigo-100 text-indigo-700 px-2 py-1 rounded font-bold uppercase">Security</span>
+                        </div>
+                        <p class="text-sm text-secondary mb-4">
+                            Released "Security Outlook 2026" (Jan 21). Investing <strong>$13B</strong> to combat deepfakes. Strategy is "AI vs. AI" defense.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl border-t-4 border-teal-500 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold text-lg text-primary">Truist</h4>
+                            <span class="text-[10px] bg-teal-100 text-teal-700 px-2 py-1 rounded font-bold uppercase">CX Impact</span>
+                        </div>
+                        <p class="text-sm text-secondary mb-4">
+                            "Truist Assist" now handles <strong>440,000 conversations/month</strong>. Launched "Client Pulse" to predict churn.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="canadian-deep-dive" class="py-16 bg-white section-header">
+            <div class="max-w-6xl mx-auto px-8">
+                <h2 class="font-serif text-3xl font-bold text-primary mb-10 text-center">Canadian Market: The Big Five</h2>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                    <div class="bg-gray-50 p-8 rounded-xl border border-slate-100">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="font-bold text-xl text-rbc-blue">RBC</h3>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-bold">#1 Canada</span>
+                        </div>
+                        <p class="text-sm text-secondary mb-4">
+                            <strong>Global Governance Leader.</strong> Ranked #3 Globally in Evident AI Index. Borealis AI is the strategic anchor for their $1B annual AI value target.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-white p-3 rounded shadow-sm text-center">
+                                <span class="block text-lg font-bold text-primary">950+</span>
+                                <span class="text-[10px] uppercase text-secondary">Researchers</span>
+                            </div>
+                            <div class="bg-white p-3 rounded shadow-sm text-center">
+                                <span class="block text-lg font-bold text-primary">10B</span>
+                                <span class="text-[10px] uppercase text-secondary">Txns/Min Analyzed</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 p-8 rounded-xl border border-slate-100">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="font-bold text-xl text-td-green">TD Bank</h3>
+                            <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-xs font-bold">#13 Global</span>
+                        </div>
+                        <p class="text-sm text-secondary mb-4">
+                            <strong>The Innovation Paradox.</strong> Possesses world-class tech (Layer 6) but dropped in rankings due to a lack of external transparency.
+                        </p>
+                        <div class="bg-white p-3 rounded shadow-sm border-l-4 border-td-green">
+                            <span class="block text-xs font-bold text-primary mb-1">Strategic Imperative</span>
+                            <span class="text-xs text-secondary">Must externalize AI value to close valuation gap vs RBC.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                        <h3 class="font-bold text-lg text-scotia-red mb-2">Scotiabank</h3>
+                        <p class="text-xs text-secondary mb-4 font-bold uppercase tracking-widest">Agentic Pioneer</p>
+                        <p class="text-sm text-secondary mb-4">
+                            "The Digital Assembly Line": Deployed 5 specialized AI agents to automate Client Insight Reports in just 3 months.
+                        </p>
+                        <div class="bg-red-50 text-red-800 text-xs p-2 rounded text-center font-bold">
+                            90% Emails Automated
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                        <h3 class="font-bold text-lg text-bmo-blue mb-2">BMO</h3>
+                        <p class="text-xs text-secondary mb-4 font-bold uppercase tracking-widest">Talent Ecosystem</p>
+                        <p class="text-sm text-secondary mb-4">
+                            Ranked Joint #1 Global for AI Talent alongside Capital One. "Lumi" virtual assistant driving digital engagement.
+                        </p>
+                        <div class="bg-blue-50 text-blue-800 text-xs p-2 rounded text-center font-bold">
+                            Microsoft Azure Partner
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                        <h3 class="font-bold text-lg text-cibc-red mb-2">CIBC</h3>
+                        <p class="text-xs text-secondary mb-4 font-bold uppercase tracking-widest">Workforce Ops</p>
+                        <p class="text-sm text-secondary mb-4">
+                            37,000 employees completed AI upskilling. Focused on "Human-Centered AI" to reduce manual processing time.
+                        </p>
+                        <div class="bg-red-50 text-red-800 text-xs p-2 rounded text-center font-bold">
+                            New CTIO (Jan 2026)
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <footer class="bg-primary text-white py-12 border-t border-slate-800">
+            <div class="max-w-5xl mx-auto px-8 text-center">
+                <p class="font-serif font-bold text-xl mb-2">North American Banking AI</p>
+                <p class="text-xs text-slate-400 uppercase tracking-widest mb-8">Strategic Intelligence Report • Jan 2026</p>
+                <div class="flex justify-center gap-6 text-sm text-slate-400">
+                    <span>Confidential</span>
+                    <span>•</span>
+                    <span>Internal Use Only</span>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        // Mermaid Initialization
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'base',
+            themeVariables: {
+                primaryColor: '#ffffff',
+                primaryTextColor: '#0f172a',
+                primaryBorderColor: '#2563eb',
+                lineColor: '#2563eb',
+            }
+        });
+
+        // Mobile Toggle Function
+        function toggleMobileTOC() {
+            const toc = document.getElementById('tableOfContents');
+            toc.classList.toggle('mobile-open');
+        }
+
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', function(e) {
+            const toc = document.getElementById('tableOfContents');
+            const toggleBtn = document.querySelector('button.lg\\:hidden');
+            if (window.innerWidth < 1024 && !toc.contains(e.target) && !toggleBtn.contains(e.target)) {
+                toc.classList.remove('mobile-open');
+            }
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                    // Close mobile menu after click
+                    if (window.innerWidth < 1024) {
+                        document.getElementById('tableOfContents').classList.remove('mobile-open');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
