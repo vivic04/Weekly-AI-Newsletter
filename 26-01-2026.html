@@ -32,15 +32,69 @@
     <style>
         /* Mermaid Diagram Styling */
         .mermaid-container {
+            position: relative; /* For absolute positioning of controls */
             display: flex;
             justify-content: center;
+            align-items: center;
             background: #ffffff;
             border: 1px solid #e2e8f0;
             border-radius: 12px;
-            padding: 20px;
+            padding: 0; /* Remove padding to let diagram fill space */
             margin: 20px 0;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            overflow-x: auto;
+            height: 600px; /* Fixed height for the viewport */
+            overflow: hidden; /* Hide overflow for custom pan/zoom */
+            cursor: grab;
+        }
+
+        .mermaid-container:active {
+            cursor: grabbing;
+        }
+
+        /* The actual SVG wrapper */
+        .mermaid-wrapper {
+            transform-origin: center;
+            transition: transform 0.1s ease-out;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Controls */
+        .mermaid-controls {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 8px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border: 1px solid #e2e8f0;
+        }
+
+        .control-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 6px;
+            background: white;
+            border: 1px solid #cbd5e1;
+            color: #475569;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .control-btn:hover {
+            background: #f1f5f9;
+            color: #2563eb;
+            border-color: #2563eb;
         }
         
         /* Navigation & Layout */
@@ -137,7 +191,7 @@
             <div class="mb-6">
                 <h4 class="font-bold text-xs uppercase tracking-widest text-primary mb-3">Canadian Landscape</h4>
                 <ul class="space-y-2 text-sm">
-                    <li><a href="#canadian-landscape" class="block py-1 pl-4 text-secondary hover:text-accent font-medium transition-colors border-l-2 border-transparent hover:border-accent">The Big 5 Analysis</a></li>
+                    <li><a href="#canadian-landscape" class="block py-1 pl-4 text-secondary hover:text-accent font-medium transition-colors border-l-2 border-transparent hover:border-accent">The Big 5 (Detailed)</a></li>
                 </ul>
             </div>
         </div>
@@ -181,8 +235,8 @@
                             <div class="text-[10px] uppercase text-white/70 tracking-wider">M&A Value</div>
                         </div>
                         <div class="bg-white/10 backdrop-blur-md p-4 rounded-lg border border-white/20 text-center">
-                            <div class="text-2xl font-bold text-white">15%</div>
-                            <div class="text-[10px] uppercase text-white/70 tracking-wider">Pinterest AI Cut</div>
+                            <div class="text-2xl font-bold text-white">70%</div>
+                            <div class="text-[10px] uppercase text-white/70 tracking-wider">Agentic Adoption</div>
                         </div>
                     </div>
                 </div>
@@ -194,10 +248,10 @@
                 <h2 class="font-serif text-3xl font-bold text-primary mb-8 border-l-4 border-accent pl-4">Executive Summary</h2>
                 <div class="prose prose-lg max-w-none text-secondary mb-12">
                     <p class="mb-6">
-                        The week of January 21-26, 2026, confirmed that AI is now the primary driver of both operational strategy and workforce restructuring. <strong>JPMorgan Chase</strong> CEO Jamie Dimon used the Davos platform to position AI as a shield against geopolitical instability, while <strong>Pinterest</strong> announced a 15% workforce reduction to pivot resources toward AI-powered products.
+                        The week of January 21-26, 2026, marks a decisive shift in banking AI. <strong>JPMorgan Chase</strong> CEO Jamie Dimon used the World Economic Forum to position AI not just as an efficiency tool, but as a critical shield against escalating <a href="https://www.hrreporter.com/focus-areas/automation-ai/jpmorgans-ceo-warns-of-civil-unrest-with-rapid-ai-rollout/393970" class="citation">civil unrest and geopolitical fracturing</a>. Meanwhile, <strong>Capital One</strong> solidified its #2 global ranking with a <a href="https://investor.capitalone.com/news-releases/news-release-details/capital-one-acquire-brex" class="citation">$5.15 billion acquisition of Brex</a>, aggressively targeting the AI-native SMB spend management market.
                     </p>
                     <p>
-                        Simultaneously, <strong>Mastercard</strong> launched its "Agent Suite," signaling the arrival of agentic AI in mainstream commerce, and <strong>Capital One</strong> executed a $5.15 billion acquisition of Brex to dominate the AI-native corporate spend market.
+                        New tech ecosystem shifts are accelerating this timeline: <strong>Mastercard</strong> launched its "Agent Suite" to power autonomous commerce, and <strong>Pinterest</strong> laid off 15% of its workforce to pivot entirely to AI product development—a signal <strong>Wall Street</strong> (Morgan Stanley) identifies as the key driver for 2026 market performance.
                     </p>
                 </div>
             </div>
@@ -206,24 +260,33 @@
         <section id="market-landscape" class="py-12 bg-white border-t border-slate-100">
             <div class="max-w-6xl mx-auto px-8">
                 <h3 class="font-bold text-sm uppercase tracking-widest text-secondary mb-6 text-center">Strategic Positioning Matrix (Evident AI Index 2025)</h3>
-                <div class="mermaid-container">
-                    <div class="mermaid">
-                        quadrantChart
-                            title AI Maturity vs Transparency
-                            x-axis Low Transparency --> High Transparency
-                            y-axis Low Innovation Impact --> High Innovation Impact
-                            quadrant-1 Market Leaders
-                            quadrant-2 Hidden Gems / Risks
-                            quadrant-3 Laggards
-                            quadrant-4 Governance Focused
-                            "TD Bank": [0.20, 0.95]
-                            "JPMorgan Chase": [0.95, 0.98]
-                            "Capital One": [0.60, 0.85]
-                            "RBC": [0.85, 0.80]
-                            "Wells Fargo": [0.55, 0.65]
-                            "PNC Bank": [0.65, 0.60]
+                
+                <div class="mermaid-container" id="matrix-container">
+                    <div class="mermaid-controls">
+                        <button class="control-btn" onclick="zoomIn()"><i class="fas fa-plus"></i></button>
+                        <button class="control-btn" onclick="zoomOut()"><i class="fas fa-minus"></i></button>
+                        <button class="control-btn" onclick="resetZoom()"><i class="fas fa-compress"></i></button>
+                    </div>
+                    <div class="mermaid-wrapper">
+                        <div class="mermaid">
+                            quadrantChart
+                                title AI Maturity vs Transparency
+                                x-axis Low Transparency --> High Transparency
+                                y-axis Low Innovation Impact --> High Innovation Impact
+                                quadrant-1 Market Leaders
+                                quadrant-2 Hidden Gems / Risks
+                                quadrant-3 Laggards
+                                quadrant-4 Governance Focused
+                                "TD Bank": [0.20, 0.95]
+                                "JPMorgan Chase": [0.95, 0.98]
+                                "Capital One": [0.60, 0.85]
+                                "RBC": [0.85, 0.80]
+                                "Wells Fargo": [0.55, 0.65]
+                                "PNC Bank": [0.65, 0.60]
+                        </div>
                     </div>
                 </div>
+                
                 <p class="text-xs text-center text-slate-500 italic mt-4">
                     Note: TD Bank remains in the "High Innovation / Low Transparency" quadrant, while US leaders JPM and Capital One dominate the upper-right "Market Leader" quadrant.
                 </p>
@@ -292,7 +355,7 @@
                                 </div>
                             </div>
                             <p class="text-secondary leading-relaxed mb-4">
-                                CEO Jamie Dimon used the Davos 2026 platform to sound the alarm on escalating <strong>civil unrest and geopolitical fracturing</strong>. He highlighted JPMC's readiness, citing their successful deployment of <a href="https://www.hrreporter.com/focus-areas/automation-ai/jpmorgans-ceo-warns-of-civil-unrest-with-rapid-ai-rollout/393970" class="citation">500+ AI production use cases</a> not just as an efficiency play, but as evidence of their ability to adapt and manage risk in an increasingly unpredictable environment.
+                                Overshadowing the bank's operational achievements, CEO Jamie Dimon used the Davos 2026 platform to sound the alarm on escalating <strong>civil unrest and geopolitical fracturing</strong>. Dimon argued that these macro-risks currently outweigh standard market metrics. Within this context, he highlighted JPMC's readiness, citing their successful deployment of <a href="https://www.hrreporter.com/focus-areas/automation-ai/jpmorgans-ceo-warns-of-civil-unrest-with-rapid-ai-rollout/393970" class="citation">500+ AI production use cases</a> not just as an efficiency play, but as evidence of their ability to adapt and manage risk in an increasingly unpredictable environment.
                             </p>
                         </div>
                     </div>
@@ -410,6 +473,7 @@
             <div class="max-w-6xl mx-auto px-8">
                 <h2 class="font-serif text-3xl font-bold text-primary mb-10 text-center">Tech & Commerce Ecosystem Shifts</h2>
                 
+
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div id="mastercard" class="bg-gradient-to-br from-red-50 to-orange-50 p-8 rounded-xl shadow-sm border border-red-100">
                         <div class="flex items-center gap-3 mb-4">
@@ -593,6 +657,7 @@
         mermaid.initialize({
             startOnLoad: true,
             theme: 'base',
+            flowchart: { useMaxWidth: false, htmlLabels: true },
             themeVariables: {
                 primaryColor: '#ffffff',
                 primaryTextColor: '#0f172a',
@@ -601,7 +666,61 @@
             }
         });
 
-        // Mobile Toggle Function
+        // Diagram Interaction Logic
+        let currentZoom = 1;
+        let isDragging = false;
+        let startX, startY, translateX = 0, translateY = 0;
+
+        function updateTransform() {
+            const wrapper = document.querySelector('.mermaid-wrapper');
+            if(wrapper) {
+                wrapper.style.transform = `translate(${translateX}px, ${translateY}px) scale(${currentZoom})`;
+            }
+        }
+
+        function zoomIn() {
+            currentZoom *= 1.2;
+            updateTransform();
+        }
+
+        function zoomOut() {
+            currentZoom /= 1.2;
+            updateTransform();
+        }
+
+        function resetZoom() {
+            currentZoom = 1;
+            translateX = 0;
+            translateY = 0;
+            updateTransform();
+        }
+
+        // Initialize drag events after Mermaid renders
+        setTimeout(() => {
+            const container = document.getElementById('matrix-container');
+            
+            container.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                startX = e.clientX - translateX;
+                startY = e.clientY - translateY;
+                container.style.cursor = 'grabbing';
+            });
+
+            window.addEventListener('mouseup', () => {
+                isDragging = false;
+                container.style.cursor = 'grab';
+            });
+
+            window.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                e.preventDefault();
+                translateX = e.clientX - startX;
+                translateY = e.clientY - startY;
+                updateTransform();
+            });
+        }, 1000);
+
+        // Mobile TOC Toggle
         function toggleMobileTOC() {
             const toc = document.getElementById('tableOfContents');
             toc.classList.toggle('mobile-open');
