@@ -11,7 +11,7 @@
             --primary: #1a365d;
             --secondary: #2d3748;
             --accent: #e53e3e;
-            --neutral: #f7fafc;
+            --neutral: #f8fafc;
             --base-100: #ffffff;
             --base-content: #1a202c;
         }
@@ -20,6 +20,11 @@
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
             color: var(--base-content);
+            background-color: #f8fafc;
+            /* Nice Background: Subtle dot pattern with radial gradient */
+            background-image: radial-gradient(#cbd5e1 1.5px, transparent 1.5px), radial-gradient(circle at top left, #f8fafc 0%, #f1f5f9 100%);
+            background-size: 24px 24px, 100% 100%;
+            background-attachment: fixed;
         }
         
         .tiempos {
@@ -32,12 +37,13 @@
             top: 0;
             width: 280px;
             height: 100vh;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
             color: white;
             overflow-y: auto;
             z-index: 1000;
             padding: 2rem 1.5rem;
-            border-right: 1px solid rgba(255,255,255,0.1);
+            border-right: 1px solid rgba(255,255,255,0.05);
+            box-shadow: 4px 0 20px rgba(0,0,0,0.1);
         }
         
         .main-content {
@@ -49,18 +55,18 @@
         .toc-link {
             display: block;
             padding: 0.5rem 0;
-            color: rgba(255,255,255,0.8);
+            color: rgba(255,255,255,0.7);
             text-decoration: none;
             border-left: 2px solid transparent;
             padding-left: 1rem;
             margin-left: -1rem;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
         }
         
         .toc-link:hover, .toc-link.active {
             color: white;
             border-left-color: var(--accent);
-            background: rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.08);
             padding-left: 1.5rem;
         }
         
@@ -95,9 +101,11 @@
         
         .hero-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-bottom: 3rem;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            margin-bottom: 5rem;
+            align-items: center;
+            padding-top: 2rem;
         }
         
         .hero-text {
@@ -106,42 +114,46 @@
             justify-content: center;
         }
         
+        /* Hero Visual - The "Paper" Container */
         .hero-visual {
             position: relative;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 12px;
-            overflow: hidden;
-            min-height: 300px;
+            height: 380px;
             display: flex;
             align-items: center;
             justify-content: center;
+            perspective: 1000px;
         }
         
-        .hero-visual::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, rgba(0,0,0,0.3) 0%, transparent 100%);
+        .hero-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            transform: rotateY(-5deg) rotateX(2deg);
+            transition: transform 0.5s ease;
+            border: 8px solid white;
+        }
+
+        .hero-visual:hover img {
+            transform: rotateY(0) rotateX(0);
         }
         
-        .visual-overlay {
-            position: absolute;
-            bottom: 2rem;
-            left: 2rem;
-            right: 2rem;
-            color: white;
-            z-index: 1;
-        }
-        
+        /* Key Insight - Floating Card ON TOP */
         .key-insight {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            color: white;
+            position: absolute;
+            bottom: -30px;
+            left: -30px; /* Overlap nicely */
+            width: 85%;
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--primary);
             padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1rem 0;
+            border-radius: 12px;
+            border-left: 6px solid var(--accent);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            z-index: 50; /* Ensure it is on top */
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.5);
         }
         
         .competitive-grid {
@@ -153,26 +165,37 @@
         
         .competitive-card {
             background: white;
-            border-radius: 8px;
-            padding: 1.5rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            border-left: 4px solid var(--accent);
+            border-radius: 12px;
+            padding: 1.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+            border-top: 4px solid var(--accent);
+            transition: transform 0.2s ease;
+        }
+
+        .competitive-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
         }
         
         .data-point {
-            background: var(--neutral);
-            padding: 1rem;
-            border-radius: 6px;
-            margin: 0.5rem 0;
-            border-left: 3px solid var(--primary);
+            background: #f8fafc;
+            padding: 1.25rem;
+            border-radius: 8px;
+            margin: 0.75rem 0;
+            border-left: 4px solid var(--primary);
+            border: 1px solid #e2e8f0;
         }
         
         .scenario-block {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
             color: white;
-            padding: 2rem;
-            border-radius: 12px;
-            margin: 2rem 0;
+            padding: 2.5rem;
+            border-radius: 16px;
+            margin: 3rem 0;
+            box-shadow: 0 10px 25px -5px rgba(30, 41, 59, 0.3);
+            position: relative;
+            overflow: hidden;
         }
         
         @media (max-width: 1024px) {
@@ -180,36 +203,27 @@
                 transform: translateX(-100%);
                 transition: transform 0.3s ease;
             }
-            
             .toc-sidebar.open {
                 transform: translateX(0);
             }
-            
             .main-content {
                 margin-left: 0;
                 padding: 0 1.5rem;
             }
-            
             .hero-grid {
                 grid-template-columns: 1fr;
+                gap: 3rem;
             }
-        }
-        
-        @media (max-width: 768px) {
-            .main-content {
-                padding: 0 1rem;
+            .hero-visual {
+                height: 300px;
+                margin-bottom: 2rem;
             }
-            
-            .hero-text h1 {
-                font-size: 2rem;
-            }
-            
-            .hero-visual img {
-                height: auto;
-            }
-            
-            .data-point .font-bold.text-2xl {
-                font-size: 1.25rem;
+            .key-insight {
+                position: relative;
+                bottom: auto;
+                left: auto;
+                width: 100%;
+                margin-top: -20px;
             }
         }
         
@@ -219,176 +233,76 @@
             min-height: 300px;
             max-height: 800px;
             background: #ffffff;
-            border: 2px solid #e5e7eb;
-            border-radius: 12px;
-            padding: 30px;
-            margin: 30px 0;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 40px;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
             position: relative;
             overflow: hidden;
         }
 
         .mermaid-container .mermaid {
             width: 100%;
-            max-width: 100%;
             height: 100%;
             cursor: grab;
-            transition: transform 0.3s ease;
-            transform-origin: center center;
             display: flex;
             justify-content: center;
             align-items: center;
-            touch-action: none;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-
-        .mermaid-container .mermaid svg {
-            max-width: 100%;
-            height: 100%;
-            display: block;
-            margin: 0 auto;
-        }
-
-        .mermaid-container .mermaid:active {
-            cursor: grabbing;
-        }
-
-        .mermaid-container.zoomed .mermaid {
-            height: 100%;
-            width: 100%;
-            cursor: grab;
         }
 
         .mermaid-controls {
             position: absolute;
-            top: 15px;
-            right: 15px;
+            top: 20px;
+            right: 20px;
             display: flex;
-            gap: 10px;
+            gap: 8px;
             z-index: 20;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 8px;
+            background: white;
+            padding: 6px;
             border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
 
         .mermaid-control-btn {
-            background: #ffffff;
-            border: 1px solid #d1d5db;
-            border-radius: 6px;
-            padding: 10px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            color: #374151;
-            font-size: 14px;
-            min-width: 36px;
-            height: 36px;
-            text-align: center;
+            width: 32px;
+            height: 32px;
             display: flex;
             align-items: center;
             justify-content: center;
+            border-radius: 6px;
+            color: #64748b;
+            cursor: pointer;
+            transition: all 0.2s;
         }
 
         .mermaid-control-btn:hover {
-            background: #f8fafc;
-            border-color: #3b82f6;
-            color: #3b82f6;
-            transform: translateY(-1px);
-        }
-
-        .mermaid-control-btn:active {
-            transform: scale(0.95);
+            background: #f1f5f9;
+            color: var(--primary);
         }
         
-        /* Mermaid theme customization for better contrast */
-        .mermaid .node rect,
-        .mermaid .node circle,
-        .mermaid .node ellipse,
-        .mermaid .node polygon {
+        /* Mermaid styling */
+        .mermaid .node rect, .mermaid .node circle, .mermaid .node polygon {
             fill: #ffffff !important;
-            stroke: #2563eb !important;
+            stroke: #1a365d !important;
             stroke-width: 2px !important;
         }
-        
-        /* Different node colors with proper contrast */
-        .mermaid .node:nth-child(4n+1) rect,
-        .mermaid .node:nth-child(4n+1) circle,
-        .mermaid .node:nth-child(4n+1) ellipse,
-        .mermaid .node:nth-child(4n+1) polygon {
-            fill: #dbeafe !important;
-            stroke: #2563eb !important;
-        }
-        
-        .mermaid .node:nth-child(4n+2) rect,
-        .mermaid .node:nth-child(4n+2) circle,
-        .mermaid .node:nth-child(4n+2) ellipse,
-        .mermaid .node:nth-child(4n+2) polygon {
-            fill: #dcfce7 !important;
-            stroke: #16a34a !important;
-        }
-        
-        .mermaid .node:nth-child(4n+3) rect,
-        .mermaid .node:nth-child(4n+3) circle,
-        .mermaid .node:nth-child(4n+3) ellipse,
-        .mermaid .node:nth-child(4n+3) polygon {
-            fill: #fef3c7 !important;
-            stroke: #d97706 !important;
-        }
-        
-        .mermaid .node:nth-child(4n+4) rect,
-        .mermaid .node:nth-child(4n+4) circle,
-        .mermaid .node:nth-child(4n+4) ellipse,
-        .mermaid .node:nth-child(4n+4) polygon {
-            fill: #fce7f3 !important;
-            stroke: #be185d !important;
-        }
-        
-        .mermaid .node .label {
-            color: #1f2937 !important;
-            font-weight: 600 !important;
-            font-size: 13px !important;
-            text-shadow: 0 1px 2px rgba(255,255,255,0.8) !important;
-        }
-        
         .mermaid .edgePath .path {
-            stroke: #6b7280 !important;
+            stroke: #94a3b8 !important;
             stroke-width: 2px !important;
-        }
-        
-        .mermaid .edgeLabel {
-            background-color: #ffffff !important;
-            color: #374151 !important;
-            border: 1px solid #d1d5db !important;
-            border-radius: 4px !important;
-            padding: 2px 6px !important;
-            font-size: 12px !important;
-            font-weight: 500 !important;
-        }
-        
-        /* Ensure text readability on all backgrounds */
-        .mermaid text {
-            fill: #1f2937 !important;
-            font-weight: 600 !important;
-        }
-        
-        /* Arrow styling */
-        .mermaid .arrowheadPath {
-            fill: #6b7280 !important;
-            stroke: #6b7280 !important;
         }
     </style>
   <base target="_blank">
 </head>
 
   <body>
-    <!-- Table of Contents Sidebar -->
     <nav class="toc-sidebar">
       <div class="mb-8">
-        <h2 class="text-xl font-bold mb-4">Banking AI Intelligence</h2>
-        <p class="text-sm opacity-80">January 21-25, 2026</p>
+        <h2 class="text-xl font-bold mb-4 tracking-tight">Banking AI Intelligence</h2>
+        <div class="inline-block px-3 py-1 bg-white/10 rounded-full text-xs font-semibold tracking-wide border border-white/10">
+            JAN 21-25, 2026
+        </div>
       </div>
 
       <div class="toc-section">
@@ -406,8 +320,8 @@
       <div class="toc-section">
         <a href="#tier1-intelligence" class="toc-link">Tier 1 Intelligence</a>
         <div class="toc-subsection">
-          <a href="#capital-one-brex" class="toc-link">Capital One-Brex Acquisition</a>
-          <a href="#us-big6-acceleration" class="toc-link">US Big 6 AI Acceleration</a>
+          <a href="#capital-one-brex" class="toc-link">Capital One-Brex Deal</a>
+          <a href="#us-big6-acceleration" class="toc-link">US Big 6 Acceleration</a>
           <a href="#td-performance-gap" class="toc-link">TD Performance Gap</a>
           <a href="#agentic-ai-emergence" class="toc-link">Agentic AI Emergence</a>
         </div>
@@ -417,8 +331,8 @@
         <a href="#tier2-intelligence" class="toc-link">Tier 2 Intelligence</a>
         <div class="toc-subsection">
           <a href="#sovereign-ai" class="toc-link">Sovereign AI</a>
+          <a href="#strategic-partnerships" class="toc-link">Strategic Market Moves</a>
           <a href="#regulatory-developments" class="toc-link">Regulatory Developments</a>
-          <a href="#technology-platforms" class="toc-link">Technology Platforms</a>
           <a href="#patent-activity" class="toc-link">Patent Activity</a>
         </div>
       </div>
@@ -433,41 +347,36 @@
       </div>
     </nav>
 
-    <!-- Main Content -->
     <main class="main-content">
-      <!-- Hero Section -->
-      <section class="py-8">
+      <section class="py-12">
         <div class="hero-grid">
           <div class="hero-text">
-            <h1 class="tiempos text-5xl font-bold text-gray-900 mb-4 leading-tight">
+            <h1 class="tiempos text-5xl font-bold text-gray-900 mb-6 leading-tight">
               North American Banking AI Intelligence:
-              <em class="text-red-600">January 21-25, 2026</em>
+              <span class="text-red-600 block mt-2">January 21-25, 2026</span>
             </h1>
-            <p class="text-xl text-gray-600 mb-6">
-              A pivotal week in banking AI competition, marked by the largest bank-fintech acquisition in history and TD Bank&#39;s accelerating competitive challenges
+            <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+              A pivotal week in banking AI competition, marked by the largest bank-fintech acquisition in history and TD Bank's accelerating competitive challenges.
             </p>
+            <div class="flex gap-4">
+                <span class="px-3 py-1 bg-red-100 text-red-700 text-sm font-semibold rounded-full border border-red-200">M&A Alert</span>
+                <span class="px-3 py-1 bg-blue-100 text-blue-700 text-sm font-semibold rounded-full border border-blue-200">Strategic Analysis</span>
+            </div>
           </div>
 
           <div class="hero-visual">
-            <img src="https://kimi-web-img.moonshot.cn/img/i1.rgstatic.net/5eb49f26a124d870568024d1ef9431d8fe897e1d.png" alt="Abstract visualization of AI in banking" class="w-full h-full object-cover" size="large" aspect="wide" query="abstract AI banking" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
-            <div class="visual-overlay">
-              <div class="key-insight">
-                <h3 class="font-bold mb-2">Key Intelligence</h3>
-                <p class="text-sm">Capital One&#39;s $5.15B Brex acquisition creates largest bank-fintech AI deal in history</p>
-              </div>
-            </div>
+            <img src="https://kimi-web-img.moonshot.cn/img/i1.rgstatic.net/5eb49f26a124d870568024d1ef9431d8fe897e1d.png" alt="Abstract visualization of AI in banking"/>
           </div>
         </div>
       </section>
 
-      <!-- Executive Summary -->
       <section id="executive-summary" class="py-8">
-        <h2 class="tiempos text-3xl font-bold text-gray-900 mb-6">Executive Summary</h2>
+        <h2 class="tiempos text-3xl font-bold text-gray-900 mb-8 border-b pb-4">Executive Summary</h2>
 
         <div class="competitive-grid">
           <div class="competitive-card">
             <h3 class="font-bold text-lg mb-3 text-red-600">Market-Defining Acquisition</h3>
-            <p class="text-gray-700">Capital One&#39;s <strong>$5.15B acquisition of Brex</strong> creates the largest bank-fintech AI deal in history, directly threatening TD Bank&#39;s commercial banking ambitions.</p>
+            <p class="text-gray-700">Capital One's <strong>$5.15B acquisition of Brex</strong> creates the largest bank-fintech AI deal in history, directly threatening TD Bank's commercial banking ambitions.</p>
           </div>
 
           <div class="competitive-card">
@@ -477,7 +386,7 @@
 
           <div class="competitive-card">
             <h3 class="font-bold text-lg mb-3 text-red-600">Agentic AI Emergence</h3>
-            <p class="text-gray-700">Agentic AI emerged as the defining 2026 strategic theme, with TD&#39;s implementation plans lagging competitors by 12-24 months.</p>
+            <p class="text-gray-700">Agentic AI emerged as the defining 2026 strategic theme, with TD's implementation plans lagging competitors by 12-24 months.</p>
           </div>
 
           <div class="competitive-card">
@@ -488,57 +397,56 @@
 
         <div class="scenario-block">
           <h3 class="text-2xl font-bold mb-4">Implications for Canadian Bank Executives</h3>
-          <p class="text-lg mb-4">The intelligence demands immediate action across three critical dimensions:</p>
-          <ul class="space-y-3">
-            <li class="flex items-start">
-              <i class="fas fa-rocket text-yellow-300 mr-3 mt-1"></i>
-              <span><strong>Immediate Agentic AI roadmap acceleration</strong> to close 12-24 month competitive gap</span>
+          <p class="text-lg mb-6 opacity-90">The intelligence demands immediate action across three critical dimensions:</p>
+          <ul class="space-y-4">
+            <li class="flex items-center bg-white/10 p-3 rounded-lg backdrop-blur-sm border border-white/10">
+              <i class="fas fa-rocket text-yellow-300 mr-4 text-xl"></i>
+              <span class="font-medium"><strong>Immediate Agentic AI roadmap acceleration</strong> to close 12-24 month competitive gap</span>
             </li>
-            <li class="flex items-start">
-              <i class="fas fa-eye text-yellow-300 mr-3 mt-1"></i>
-              <span><strong>Near-term transparency strategy overhaul</strong> to address #16 ranking deficit</span>
+            <li class="flex items-center bg-white/10 p-3 rounded-lg backdrop-blur-sm border border-white/10">
+              <i class="fas fa-eye text-yellow-300 mr-4 text-xl"></i>
+              <span class="font-medium"><strong>Near-term transparency strategy overhaul</strong> to address #16 ranking deficit</span>
             </li>
-            <li class="flex items-start">
-              <i class="fas fa-chart-line text-yellow-300 mr-3 mt-1"></i>
-              <span><strong>Structural innovation investment scaling</strong> to avoid irreversible competitive disadvantage</span>
+            <li class="flex items-center bg-white/10 p-3 rounded-lg backdrop-blur-sm border border-white/10">
+              <i class="fas fa-chart-line text-yellow-300 mr-4 text-xl"></i>
+              <span class="font-medium"><strong>Structural innovation investment scaling</strong> to avoid irreversible competitive disadvantage</span>
             </li>
           </ul>
         </div>
       </section>
 
-      <!-- Executive Ranking Framework -->
       <section id="ranking-framework" class="py-8">
-        <h2 class="tiempos text-3xl font-bold text-gray-900 mb-6">Executive Ranking Framework</h2>
+        <h2 class="tiempos text-3xl font-bold text-gray-900 mb-8 border-b pb-4">Executive Ranking Framework</h2>
 
-        <div id="ranking-criteria" class="mb-8">
+        <div id="ranking-criteria" class="mb-10">
           <h3 class="tiempos text-2xl font-bold text-gray-800 mb-4">Ranking Criteria Definition</h3>
-          <p class="text-gray-700 mb-6">
+          <p class="text-gray-600 mb-6 max-w-3xl">
             The intelligence gathered during the January 21–25, 2026 monitoring period has been systematically evaluated through a four-dimensional ranking framework designed specifically for Canadian bank executive decision-making.
           </p>
 
           <div class="competitive-grid">
             <div class="data-point">
               <h4 class="font-bold text-lg mb-2">North American Competitor Impact</h4>
-              <p class="text-sm text-gray-600">Direct competitive threat to TD Bank&#39;s market position across retail banking, commercial banking, wealth management, and capital markets.</p>
-              <div class="mt-2 text-xs text-blue-600 font-semibold">WEIGHT: HIGH</div>
+              <p class="text-sm text-gray-600">Direct competitive threat to TD Bank's market position across retail banking, commercial banking, wealth management, and capital markets.</p>
+              <div class="mt-3 text-xs text-blue-600 font-bold bg-blue-50 inline-block px-2 py-1 rounded">WEIGHT: HIGH</div>
             </div>
 
             <div class="data-point">
               <h4 class="font-bold text-lg mb-2">Strategic Magnitude</h4>
               <p class="text-sm text-gray-600">Distinguishes fundamental business model transformations from incremental capability improvements.</p>
-              <div class="mt-2 text-xs text-blue-600 font-semibold">WEIGHT: HIGH</div>
+              <div class="mt-3 text-xs text-blue-600 font-bold bg-blue-50 inline-block px-2 py-1 rounded">WEIGHT: HIGH</div>
             </div>
 
             <div class="data-point">
               <h4 class="font-bold text-lg mb-2">Relevance to TD Weaknesses</h4>
-              <p class="text-sm text-gray-600">Maps intelligence to TD&#39;s documented capability gaps in Transparency, Innovation, Leadership, and Talent.</p>
-              <div class="mt-2 text-xs text-blue-600 font-semibold">WEIGHT: HIGH</div>
+              <p class="text-sm text-gray-600">Maps intelligence to TD's documented capability gaps in Transparency, Innovation, Leadership, and Talent.</p>
+              <div class="mt-3 text-xs text-blue-600 font-bold bg-blue-50 inline-block px-2 py-1 rounded">WEIGHT: HIGH</div>
             </div>
 
             <div class="data-point">
               <h4 class="font-bold text-lg mb-2">Source Authority</h4>
               <p class="text-sm text-gray-600">Tiered source quality assessment from direct corporate announcements to cross-verified intelligence.</p>
-              <div class="mt-2 text-xs text-blue-600 font-semibold">VERIFICATION: ESSENTIAL</div>
+              <div class="mt-3 text-xs text-blue-600 font-bold bg-blue-50 inline-block px-2 py-1 rounded">VERIFICATION: ESSENTIAL</div>
             </div>
           </div>
         </div>
@@ -546,422 +454,434 @@
         <div id="tier-classification">
           <h3 class="tiempos text-2xl font-bold text-gray-800 mb-4">Tier Classification System</h3>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="bg-red-50 border border-red-200 rounded-lg p-6">
-              <h4 class="font-bold text-lg mb-3 text-red-700">Tier 1: Direct Competitors &amp; Strategic Inflection Points</h4>
-              <p class="text-sm text-gray-700 mb-3">Demands immediate executive attention and potential strategic response.</p>
-              <ul class="text-sm text-gray-600 space-y-1">
-                <li>• Direct competitor transformational moves</li>
-                <li>• Technology inflection points reshaping competitive dynamics</li>
-                <li>• Capability gaps threatening fundamental market position</li>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-red-50 border border-red-100 rounded-xl p-8 shadow-sm">
+              <h4 class="font-bold text-xl mb-3 text-red-800 flex items-center">
+                <i class="fas fa-layer-group mr-2"></i> Tier 1: Strategic Inflection
+              </h4>
+              <p class="text-sm text-gray-700 mb-4 font-medium">Demands immediate executive attention and potential strategic response.</p>
+              <ul class="text-sm text-gray-600 space-y-2 list-disc pl-4">
+                <li>Direct competitor transformational moves</li>
+                <li>Technology inflection points reshaping competitive dynamics</li>
+                <li>Capability gaps threatening fundamental market position</li>
               </ul>
             </div>
 
-            <div class="bg-blue-50 border border-blue-200 rounded-lg p-6">
-              <h4 class="font-bold text-lg mb-3 text-blue-700">Tier 2: Policy, Deals, Tools &amp; Infrastructure</h4>
-              <p class="text-sm text-gray-700 mb-3">Shapes the operating environment without requiring immediate response.</p>
-              <ul class="text-sm text-gray-600 space-y-1">
-                <li>• Regulatory developments with longer compliance horizons</li>
-                <li>• Technology platform advances</li>
-                <li>• Patent activity and market structure changes</li>
+            <div class="bg-blue-50 border border-blue-100 rounded-xl p-8 shadow-sm">
+              <h4 class="font-bold text-xl mb-3 text-blue-800 flex items-center">
+                <i class="fas fa-tools mr-2"></i> Tier 2: Infrastructure & Tools
+              </h4>
+              <p class="text-sm text-gray-700 mb-4 font-medium">Shapes the operating environment without requiring immediate response.</p>
+              <ul class="text-sm text-gray-600 space-y-2 list-disc pl-4">
+                <li>Regulatory developments with longer compliance horizons</li>
+                <li>Technology platform advances</li>
+                <li>Patent activity and market structure changes</li>
               </ul>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Tier 1 Strategic Intelligence -->
       <section id="tier1-intelligence" class="py-8">
-        <h2 class="tiempos text-3xl font-bold text-gray-900 mb-6">Tier 1 Strategic Intelligence</h2>
+        <h2 class="tiempos text-3xl font-bold text-gray-900 mb-8 border-b pb-4">Tier 1 Strategic Intelligence</h2>
 
-        <div id="capital-one-brex" class="mb-8">
-          <h3 class="tiempos text-2xl font-bold text-gray-800 mb-4">Capital One&#39;s Brex Acquisition—Largest Bank-Fintech AI Deal in History</h3>
+        <div id="capital-one-brex" class="mb-12">
+          <h3 class="tiempos text-2xl font-bold text-gray-800 mb-4">Capital One's Brex Acquisition—Largest Bank-Fintech AI Deal</h3>
 
-          <div class="bg-white border border-gray-200 rounded-lg p-6 mb-6">
-            <h4 class="font-bold text-lg mb-3">Transaction Overview: $5.15B Definitive Agreement Announced January 22, 2026</h4>
-            <p class="text-gray-700 mb-4">
-              On <strong>January 22, 2026</strong>, <strong>Capital One Financial Corporation</strong> announced a <strong>definitive agreement to acquire Brex Inc. for approximately $5.15 billion</strong> in a stock-and-cash transaction. The transaction structure comprises <strong>$3.5 billion in cash and $1.65 billion in Capital One common stock</strong>, with Brex founder-CEO <strong>Henrique Dubugras</strong> committed to lead the business post-close as <strong>Executive Vice President and Head of Business Payments Innovation</strong>.
-              <a href="https://investor.capitalone.com/news-releases/news-release-details/capital-one-acquire-brex/" class="citation">[Source: Capital One Investor Relations]</a>
+          <div class="bg-white border border-gray-200 rounded-xl p-8 mb-8 shadow-sm">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
+                <div>
+                    <h4 class="font-bold text-xl text-gray-900">Transaction Overview</h4>
+                    <p class="text-sm text-gray-500 mt-1">Announced January 22, 2026</p>
+                </div>
+                <span class="px-4 py-1 bg-red-100 text-red-700 font-bold rounded-full text-sm mt-2 md:mt-0">Definitive Agreement</span>
+            </div>
+            
+            <p class="text-gray-700 mb-6 text-lg">
+              Capital One Financial Corporation announced a definitive agreement to acquire Brex Inc. for approximately <strong>$5.15 billion</strong>. The transaction comprises $3.5 billion in cash and $1.65 billion in stock, with Brex founder-CEO Henrique Dubugras leading the new Business Payments Innovation unit.
+              <a href="https://investor.capitalone.com/news-releases/news-release-details/capital-one-acquire-brex/" class="citation text-sm ml-2">[Source]</a>
             </p>
 
-            <div class="competitive-grid">
-              <div class="data-point">
-                <div class="font-bold text-2xl text-red-600">$5.15B</div>
-                <div class="text-sm text-gray-600">Total Transaction Value</div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+              <div class="p-4 bg-neutral rounded-lg text-center border border-gray-100">
+                <div class="font-bold text-3xl text-red-600 mb-1">$5.15B</div>
+                <div class="text-xs text-gray-500 font-bold uppercase">Transaction Value</div>
               </div>
-              <div class="data-point">
-                <div class="font-bold text-2xl text-red-600">12x</div>
-                <div class="text-sm text-gray-600">2026 Revenue Multiple</div>
+              <div class="p-4 bg-neutral rounded-lg text-center border border-gray-100">
+                <div class="font-bold text-3xl text-red-600 mb-1">12x</div>
+                <div class="text-xs text-gray-500 font-bold uppercase">Rev Multiple</div>
               </div>
-              <div class="data-point">
-                <div class="font-bold text-2xl text-red-600">340</div>
-                <div class="text-sm text-gray-600">AI/ML Engineers Acquired</div>
+              <div class="p-4 bg-neutral rounded-lg text-center border border-gray-100">
+                <div class="font-bold text-3xl text-red-600 mb-1">340</div>
+                <div class="text-xs text-gray-500 font-bold uppercase">AI Engineers</div>
               </div>
-              <div class="data-point">
-                <div class="font-bold text-2xl text-red-600">Q3 2026</div>
-                <div class="text-sm text-gray-600">Expected Close</div>
+              <div class="p-4 bg-neutral rounded-lg text-center border border-gray-100">
+                <div class="font-bold text-3xl text-red-600 mb-1">Q3 26</div>
+                <div class="text-xs text-gray-500 font-bold uppercase">Exp. Close</div>
               </div>
             </div>
           </div>
 
-          <div class="key-insight">
-            <h4 class="font-bold mb-2"><i class="fas fa-exclamation-triangle mr-2"></i>Competitive Positioning vs. TD Bank</h4>
-            <p class="mb-4">The Capital One-Brex combination creates immediate competitive pressure on TD Bank&#39;s commercial banking growth strategy, which has prioritized SME and middle-market segment expansion as a core pillar of its 2023–2027 strategic plan.</p>
+           <div class="mermaid-container">
+            <div class="mermaid">
+            graph LR
+                A[Capital One] -->|Acquires $5.15B| B[Brex AI Platform]
+                B --> C{Strategic Shift}
+                C -->|Talent| D[+340 AI Engineers]
+                C -->|Product| E[Autonomous Payments]
+                C -->|Speed| F[60s Credit Decisions]
+                E --> G[Threat to TD Commercial]
+                F --> G
+                style G fill:#fee2e2,stroke:#ef4444,color:#b91c1c
+            </div>
+            <div class="mermaid-controls">
+                <div class="mermaid-control-btn zoom-in"><i class="fas fa-plus"></i></div>
+                <div class="mermaid-control-btn zoom-out"><i class="fas fa-minus"></i></div>
+                <div class="mermaid-control-btn reset-zoom"><i class="fas fa-compress"></i></div>
+            </div>
+          </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
-              <div class="bg-white bg-opacity-20 p-3 rounded">
-                <h5 class="font-bold mb-2">Credit Decisioning Speed</h5>
-                <p class="text-sm">Brex: 73% approval within 60 seconds
-                  <br/>TD: 3-5 business days
+          <div class="bg-gradient-to-r from-red-50 to-white p-6 rounded-xl border border-red-100 mt-6">
+            <h4 class="font-bold mb-3 text-red-800 flex items-center"><i class="fas fa-crosshairs mr-2"></i>Competitive Positioning vs. TD Bank</h4>
+            <p class="mb-4 text-gray-700">The Capital One-Brex combination creates immediate competitive pressure on TD Bank's commercial banking growth strategy.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
+              <div class="bg-white p-4 rounded-lg shadow-sm border border-red-100">
+                <h5 class="font-bold mb-2 text-gray-900 text-sm uppercase tracking-wide">Credit Speed</h5>
+                <p class="text-sm"><span class="font-semibold text-green-600">Brex: 60 seconds</span>
+                  <br/><span class="text-gray-500">TD: 3-5 business days</span>
                 </p>
               </div>
-              <div class="bg-white bg-opacity-20 p-3 rounded">
-                <h5 class="font-bold mb-2">Expense Management</h5>
-                <p class="text-sm">Brex: 94% accuracy, real-time
-                  <br/>TD: Third-party offerings
+              <div class="bg-white p-4 rounded-lg shadow-sm border border-red-100">
+                <h5 class="font-bold mb-2 text-gray-900 text-sm uppercase tracking-wide">Expense Mgmt</h5>
+                <p class="text-sm"><span class="font-semibold text-green-600">Brex: Real-time AI</span>
+                  <br/><span class="text-gray-500">TD: Third-party tools</span>
                 </p>
               </div>
-              <div class="bg-white bg-opacity-20 p-3 rounded">
-                <h5 class="font-bold mb-2">Platform Architecture</h5>
-                <p class="text-sm">Brex: API-first, cloud-native
-                  <br/>TD: Batch-oriented core
+              <div class="bg-white p-4 rounded-lg shadow-sm border border-red-100">
+                <h5 class="font-bold mb-2 text-gray-900 text-sm uppercase tracking-wide">Architecture</h5>
+                <p class="text-sm"><span class="font-semibold text-green-600">Brex: API-First</span>
+                  <br/><span class="text-gray-500">TD: Batch Core</span>
                 </p>
               </div>
             </div>
           </div>
         </div>
 
-        <div id="us-big6-acceleration" class="mb-8">
+        <div id="us-big6-acceleration" class="mb-12">
           <h3 class="tiempos text-2xl font-bold text-gray-800 mb-4">US Big 6 Banks Accelerate Enterprise AI Deployment</h3>
 
-          <div class="bg-white border border-gray-200 rounded-lg p-6">
+          <div class="bg-white border border-gray-200 rounded-xl p-8 shadow-sm">
             <p class="text-gray-700 mb-6">
-              The January 21–25, 2026 period witnessed coordinated acceleration of enterprise AI deployment across the US Big 6 banks, with multiple institutions announcing significant initiatives that collectively establish elevated competitive benchmarks for North American banking.
-              <a href="https://connect.cefpro.com/article/view/banks-accelerate-ai-adoption-for-2026" class="citation">[Source: CEFpro Banking AI Report]</a>
+              The January 21–25, 2026 period witnessed coordinated acceleration of enterprise AI deployment across the US Big 6 banks, establishing elevated competitive benchmarks.
+              <a href="https://connect.cefpro.com/article/view/banks-accelerate-ai-adoption-for-2026" class="citation">[Source]</a>
             </p>
 
-            <div class="space-y-6">
-              <div class="border-l-4 border-blue-500 pl-4">
-                <h4 class="font-bold text-lg mb-2">BNY Mellon: Google Cloud Gemini Enterprise</h4>
-                <p class="text-sm text-gray-700">$180M committed Google Cloud AI infrastructure spending through 2028, with 150 AI-powered offerings planned across operations.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                <h4 class="font-bold text-blue-900 mb-1">BNY Mellon</h4>
+                <p class="text-sm text-gray-700">$180M committed Google Cloud AI spend; 150 AI-powered offerings planned.</p>
               </div>
 
-              <div class="border-l-4 border-green-500 pl-4">
-                <h4 class="font-bold text-lg mb-2">Bank of America: $100M+ Annual AI Investment</h4>
-                <p class="text-sm text-gray-700">35 million monthly Erica virtual assistant interactions, $2.3B annual fraud prevention value.</p>
+              <div class="p-4 bg-green-50 rounded-lg border-l-4 border-green-500">
+                <h4 class="font-bold text-green-900 mb-1">Bank of America</h4>
+                <p class="text-sm text-gray-700">$100M+ annual AI investment; 35M monthly Erica interactions driving $2.3B value.</p>
               </div>
 
-              <div class="border-l-4 border-purple-500 pl-4">
-                <h4 class="font-bold text-lg mb-2">Citi: AI Assessment Across 50+ Complex Processes</h4>
-                <p class="text-sm text-gray-700">$1.2-1.8B identified annual efficiency improvement potential, with 40% achievable within 24 months.</p>
+              <div class="p-4 bg-purple-50 rounded-lg border-l-4 border-purple-500">
+                <h4 class="font-bold text-purple-900 mb-1">Citi</h4>
+                <p class="text-sm text-gray-700">AI assessment across 50+ processes; $1.2-1.8B efficiency potential identified.</p>
               </div>
 
-              <div class="border-l-4 border-red-500 pl-4">
-                <h4 class="font-bold text-lg mb-2">JPMorgan Chase: Sustained AI Leadership</h4>
-                <p class="text-sm text-gray-700">#1 Evident AI Index ranking for fourth consecutive year, ~$2B annual AI-driven value creation.</p>
+              <div class="p-4 bg-red-50 rounded-lg border-l-4 border-red-500">
+                <h4 class="font-bold text-red-900 mb-1">JPMorgan Chase</h4>
+                <p class="text-sm text-gray-700">#1 Evident AI ranking maintained; ~$2B annual AI-driven value creation.</p>
               </div>
             </div>
           </div>
         </div>
 
-        <div id="td-performance-gap" class="mb-8">
-          <h3 class="tiempos text-2xl font-bold text-gray-800 mb-4">TD Bank Performance Gap Analysis—Evident AI Index 2025</h3>
+        <div id="td-performance-gap" class="mb-12">
+          <h3 class="tiempos text-2xl font-bold text-gray-800 mb-4">TD Bank Performance Gap Analysis</h3>
 
-          <div class="bg-white border border-gray-200 rounded-lg p-6">
+          <div class="bg-white border border-gray-200 rounded-xl p-8 shadow-sm">
             <p class="text-gray-700 mb-6">
-              The <strong>Evident AI Index 2025</strong>, published October 8, 2025, provides the most comprehensive third-party assessment of TD Bank&#39;s AI capabilities relative to global competitors, revealing specific performance gaps that inform strategic priority setting.
-              <a href="https://evidentinsights.com/bankingbrief/heres-the-2025-evident-ai-index/" class="citation">[Source: Evident AI Index 2025]</a>
+              The <strong>Evident AI Index 2025</strong> provides the most comprehensive third-party assessment of TD Bank's AI capabilities, revealing specific performance gaps.
+              <a href="https://evidentinsights.com/bankingbrief/heres-the-2025-evident-ai-index/" class="citation">[Source]</a>
             </p>
 
-            <div class="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
-              <h4 class="font-bold text-lg mb-2 text-red-700">Overall Rankings: TD Bank Falls to #13</h4>
-              <p class="text-sm text-gray-700 mb-3">TD Bank&#39;s four-position decline from #9 in 2024 is the largest drop among top-20 banks, contrasting with RBC&#39;s maintained position at #3.</p>
+            <div class="bg-red-50 border border-red-200 rounded-lg p-6 mb-6 text-center">
+              <h4 class="font-bold text-lg mb-2 text-red-800">Overall Rankings: TD Bank Falls to #13</h4>
+              <p class="text-sm text-gray-700 mb-4">Largest drop among top-20 banks (down 4 positions). RBC maintains #3.</p>
 
-              <div class="grid grid-cols-3 gap-2 text-center">
-                <div class="bg-white p-2 rounded">
-                  <div class="font-bold text-green-600">JPMorgan Chase</div>
-                  <div class="text-xs">#1 (91.2)</div>
+              <div class="flex justify-center gap-4">
+                <div class="bg-white px-4 py-2 rounded shadow-sm">
+                  <div class="font-bold text-green-600">JPMC</div>
+                  <div class="text-xs font-bold text-gray-500">#1 (91.2)</div>
                 </div>
-                <div class="bg-white p-2 rounded">
+                <div class="bg-white px-4 py-2 rounded shadow-sm">
                   <div class="font-bold text-blue-600">RBC</div>
-                  <div class="text-xs">#3 (78.5)</div>
+                  <div class="text-xs font-bold text-gray-500">#3 (78.5)</div>
                 </div>
-                <div class="bg-white p-2 rounded border-2 border-red-300">
+                <div class="bg-white px-4 py-2 rounded shadow-sm border-b-2 border-red-500">
                   <div class="font-bold text-red-600">TD Bank</div>
-                  <div class="text-xs">#13 (67.3)</div>
+                  <div class="text-xs font-bold text-gray-500">#13 (67.3)</div>
                 </div>
               </div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div class="bg-yellow-50 border border-yellow-200 rounded p-4">
-                <h5 class="font-bold mb-2">Transparency Deficit: #16</h5>
-                <p class="text-sm">Limited public disclosure of AI governance, minimal published research, absence of quantified value targets.</p>
+              <div class="bg-neutral border border-gray-200 rounded p-4">
+                <h5 class="font-bold mb-2 text-gray-900">Transparency Deficit: #16</h5>
+                <p class="text-sm text-gray-600">Limited public disclosure of AI governance; absence of quantified value targets.</p>
               </div>
 
-              <div class="bg-orange-50 border border-orange-200 rounded p-4">
-                <h5 class="font-bold mb-2">Innovation Velocity Gap: #8</h5>
-                <p class="text-sm">12% patent growth vs. RBC&#39;s 34%, no disclosed VC investments, limited production use case visibility.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div id="agentic-ai-emergence" class="mb-8">
-          <h3 class="tiempos text-2xl font-bold text-gray-800 mb-4">Agentic AI Emerges as Defining 2026 Strategic Theme</h3>
-
-          <div class="bg-white border border-gray-200 rounded-lg p-6">
-            <p class="text-gray-700 mb-4">
-              The January 21–25, 2026 period confirmed Agentic AI—autonomous AI systems capable of independent action, decision-making, and task completion—as the dominant strategic priority for North American banking AI in 2026.
-              <a href="https://www.gartner.com/en/newsroom/press-releases/2025-10-20-gartner-identifies-the-top-strategic-technology-trends-for-2026" class="citation">[Source: Gartner Technology Trends]</a>
-            </p>
-
-            <div class="key-insight">
-              <h4 class="font-bold mb-2">TD Bank CEO Confirmation</h4>
-              <p class="mb-3">TD Bank CEO Bharat Masrani confirmed at the January 2026 investor day that Agentic AI implementation is prioritized for 2026, with specific reference to &#34;agentic capabilities that will transform how we serve customers and operate our business.&#34;</p>
-              <a href="https://evidentinsights.com/bankingbrief/meet-the-bank-of-the-future/" class="citation">[Source: Evident AI Banking Brief]</a>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
-              <div class="bg-blue-50 border border-blue-200 rounded p-4">
-                <h5 class="font-bold mb-2">JPMorgan Chase</h5>
-                <p class="text-sm">LLM Suite for 200K+ users, implied agentic evolution. <strong>TD Lag: 12-24 months</strong></p>
-              </div>
-
-              <div class="bg-green-50 border border-green-200 rounded p-4">
-                <h5 class="font-bold mb-2">RBC</h5>
-                <p class="text-sm">Aiden platform deployed, agentic experimentation active. <strong>TD Lag: 6-12 months</strong></p>
-              </div>
-
-              <div class="bg-red-50 border border-red-200 rounded p-4">
-                <h5 class="font-bold mb-2">Capital One-Brex</h5>
-                <p class="text-sm">AI-native platform, autonomous capabilities in production. <strong>TD Lag: 18-24 months</strong></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Tier 2 Supporting Intelligence -->
-      <section id="tier2-intelligence" class="py-8">
-        <h2 class="tiempos text-3xl font-bold text-gray-900 mb-6">Tier 2 Supporting Intelligence</h2>
-
-        <div id="sovereign-ai" class="mb-8">
-          <h3 class="tiempos text-2xl font-bold text-gray-800 mb-4">Sovereign AI &amp; Data Residency Imperatives</h3>
-
-          <div class="bg-white border border-gray-200 rounded-lg p-6">
-            <p class="text-gray-700 mb-6">
-              Sovereign AI—ensuring AI data, models, and compute infrastructure remain within national or regional boundaries—emerged as a significant strategic consideration during January 21–25, 2026, with specific relevance to Canadian banking competitive positioning.
-              <a href="https://techstrong.ai/features/sovereign-ai-in-2026-from-ambition-to-production-reality/" class="citation">[Source: TechStrong AI]</a>
-            </p>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div class="bg-red-50 border border-red-200 rounded p-4">
-                <h4 class="font-bold mb-2 text-red-700">Canadian Context: OSFI Guidance</h4>
-                <p class="text-sm text-gray-700">Office of the Superintendent of Financial Institutions developing AI supervision framework emphasizing domestic data residency and model governance requirements.</p>
-              </div>
-
-              <div class="bg-blue-50 border border-blue-200 rounded p-4">
-                <h4 class="font-bold mb-2 text-blue-700">Production Reality Gap</h4>
-                <p class="text-sm text-gray-700">Despite policy ambition, most financial institutions maintain substantial dependence on US-based cloud AI services that do not fully satisfy Sovereign AI requirements.</p>
+              <div class="bg-neutral border border-gray-200 rounded p-4">
+                <h5 class="font-bold mb-2 text-gray-900">Innovation Velocity Gap: #8</h5>
+                <p class="text-sm text-gray-600">12% patent growth vs. RBC's 34%; limited production use case visibility.</p>
               </div>
             </div>
           </div>
         </div>
 
-        <div id="regulatory-developments" class="mb-8">
-          <h3 class="tiempos text-2xl font-bold text-gray-800 mb-4">Regulatory &amp; Compliance Developments</h3>
+        <div id="agentic-ai-emergence" class="mb-12">
+          <h3 class="tiempos text-2xl font-bold text-gray-800 mb-4">Agentic AI: The 2026 Strategic Theme</h3>
 
-          <div class="bg-white border border-gray-200 rounded-lg p-6">
-            <div class="competitive-grid">
-              <div class="bg-orange-50 border border-orange-200 rounded p-4">
-                <h4 class="font-bold mb-2">Colorado AI Law</h4>
-                <p class="text-sm text-gray-700">Effective February 1, 2026, establishing algorithmic accountability requirements with penalties up to $20,000 per violation.</p>
-              </div>
-
-              <div class="bg-green-50 border border-green-200 rounded p-4">
-                <h4 class="font-bold mb-2">EU/UK Alignment</h4>
-                <p class="text-sm text-gray-700">EU AI Act high-risk system obligations effective August 2026, UK FCA guidance on AI model risk management.</p>
-              </div>
-
-              <div class="bg-yellow-50 border border-yellow-200 rounded p-4">
-                <h4 class="font-bold mb-2">OSFI B-10 Guidance</h4>
-                <p class="text-sm text-gray-700">Third-party risk management framework for AI service providers requiring enhanced oversight.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div id="technology-platforms" class="mb-8">
-          <h3 class="tiempos text-2xl font-bold text-gray-800 mb-4">Technology Platform &amp; Tooling Evolution</h3>
-
-          <div class="bg-white border border-gray-200 rounded-lg p-6">
-            <div class="bg-blue-50 border border-blue-200 rounded p-4 mb-4">
-              <h4 class="font-bold mb-2">Domain-Specific Language Models (DSLMs)</h4>
-              <p class="text-sm text-gray-700 mb-3">Continued industry investment in DSLMs optimized for financial services applications, with TD Bank developing proprietary tabular foundation models.</p>
-              <a href="https://evidentinsights.com/bankingbrief/meet-the-bank-of-the-future/" class="citation">[Source: Evident AI Banking Brief]</a>
+          <div class="bg-white border border-gray-200 rounded-xl p-8 shadow-sm">
+            <div class="flex items-start mb-6">
+                <div class="bg-indigo-100 p-3 rounded-lg mr-4">
+                    <i class="fas fa-robot text-indigo-600 text-xl"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg">Shift to Autonomous Systems</h4>
+                    <p class="text-sm text-gray-600">January 21-25 confirmed "Agentic AI" as the dominant priority—systems capable of independent decision making.</p>
+                </div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div class="text-center p-3 bg-gray-50 rounded">
-                <i class="fas fa-cube text-2xl text-blue-600 mb-2"></i>
-                <h5 class="font-bold">Proprietary Development</h5>
-                <p class="text-xs text-gray-600">Full control, differentiation potential</p>
+              <div class="bg-blue-50 border border-blue-100 rounded p-4">
+                <h5 class="font-bold mb-2 text-blue-900">JPMorgan Chase</h5>
+                <p class="text-xs text-gray-700 mb-2">LLM Suite for 200K+ users.</p>
+                <div class="text-xs font-bold text-red-600 bg-white inline-block px-2 py-1 rounded border border-red-100">TD Lag: 12-24 mos</div>
               </div>
 
-              <div class="text-center p-3 bg-gray-50 rounded">
-                <i class="fas fa-handshake text-2xl text-green-600 mb-2"></i>
-                <h5 class="font-bold">Custom Partnership</h5>
-                <p class="text-xs text-gray-600">Faster deployment, vendor expertise</p>
+              <div class="bg-green-50 border border-green-100 rounded p-4">
+                <h5 class="font-bold mb-2 text-green-900">RBC</h5>
+                <p class="text-xs text-gray-700 mb-2">Aiden platform deployed.</p>
+                <div class="text-xs font-bold text-red-600 bg-white inline-block px-2 py-1 rounded border border-red-100">TD Lag: 6-12 mos</div>
               </div>
 
-              <div class="text-center p-3 bg-gray-50 rounded">
-                <i class="fas fa-code-branch text-2xl text-purple-600 mb-2"></i>
-                <h5 class="font-bold">Open-Source Adaptation</h5>
-                <p class="text-xs text-gray-600">Cost efficiency, community innovation</p>
+              <div class="bg-red-50 border border-red-100 rounded p-4">
+                <h5 class="font-bold mb-2 text-red-900">Capital One</h5>
+                <p class="text-xs text-gray-700 mb-2">Autonomous capabilities in prod.</p>
+                <div class="text-xs font-bold text-red-600 bg-white inline-block px-2 py-1 rounded border border-red-100">TD Lag: 18-24 mos</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="tier2-intelligence" class="py-8">
+        <h2 class="tiempos text-3xl font-bold text-gray-900 mb-8 border-b pb-4">Tier 2 Supporting Intelligence</h2>
+
+        <div id="sovereign-ai" class="mb-10">
+          <h3 class="tiempos text-2xl font-bold text-gray-800 mb-4">Sovereign AI & Data Residency</h3>
+
+          <div class="bg-white border border-gray-200 rounded-xl p-8 shadow-sm">
+            <p class="text-gray-700 mb-6">
+              Sovereign AI—ensuring AI data, models, and compute infrastructure remain within national boundaries—emerged as a significant strategic consideration.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="bg-red-50 border border-red-100 rounded p-4">
+                <h4 class="font-bold mb-2 text-red-800">Canadian Context: OSFI</h4>
+                <p class="text-sm text-gray-700">OSFI is developing a framework emphasizing domestic data residency, challenging reliance on US cloud models.</p>
+              </div>
+
+              <div class="bg-blue-50 border border-blue-100 rounded p-4">
+                <h4 class="font-bold mb-2 text-blue-800">Production Reality Gap</h4>
+                <p class="text-sm text-gray-700">Most financial institutions maintain substantial dependence on US-based cloud AI services that do not fully satisfy Sovereign AI requirements.</p>
               </div>
             </div>
           </div>
         </div>
 
-        <div id="patent-activity" class="mb-8">
-          <h3 class="tiempos text-2xl font-bold text-gray-800 mb-4">Patent &amp; Intellectual Property Activity</h3>
+        <div id="strategic-partnerships" class="mb-10">
+            <h3 class="tiempos text-2xl font-bold text-gray-800 mb-4">Strategic Market Movements</h3>
+            
+            <div class="bg-white border border-gray-200 rounded-xl p-8 shadow-sm">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="p-5 bg-neutral rounded-lg border border-gray-200">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold text-lg text-gray-900">FICO & Tech Mahindra</h4>
+                            <span class="text-xs font-bold bg-green-100 text-green-700 px-2 py-1 rounded">Jan 30</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-3">
+                            Strategic partnership to establish a Centre of Excellence for core banking transformation and AI-driven decisioning.
+                        </p>
+                        <a href="https://financialit.net/news/banking/fico-and-tech-mahindra-partner-accelerate-ai-driven-decisioning-and-core-banking" class="text-xs text-blue-600 font-semibold hover:underline">View Details <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
 
-          <div class="bg-white border border-gray-200 rounded-lg p-6">
+                    <div class="p-5 bg-neutral rounded-lg border border-gray-200">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold text-lg text-gray-900">Cognizant & Uniphore</h4>
+                            <span class="text-xs font-bold bg-blue-100 text-blue-700 px-2 py-1 rounded">Feb 02</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-3">
+                            Collaboration to develop industry-specific AI agents and Small Language Models (SLMs) for highly regulated banking environments.
+                        </p>
+                        <a href="https://www.stocktitan.net/news/CTSH/cognizant-and-uniphore-partner-to-deliver-smarter-domain-specific-ai-0sctzyq0fk8m.html" class="text-xs text-blue-600 font-semibold hover:underline">View Details <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+
+                <div class="mt-6 p-4 bg-indigo-50 border border-indigo-100 rounded-lg">
+                    <h5 class="font-bold text-indigo-900 mb-1"><i class="fas fa-chart-line mr-2"></i>Value Realization Data Point</h5>
+                    <p class="text-sm text-indigo-800">
+                        <strong>Lloyds Banking Group</strong> announced on Jan 30 they expect <strong>over £100 million</strong> in value generation specifically from next-generation AI initiatives in 2026.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div id="regulatory-developments" class="mb-10">
+          <h3 class="tiempos text-2xl font-bold text-gray-800 mb-4">Regulatory & Compliance</h3>
+
+          <div class="bg-white border border-gray-200 rounded-xl p-8 shadow-sm">
+            <div class="competitive-grid">
+              <div class="bg-neutral rounded p-4 border border-gray-100">
+                <h4 class="font-bold mb-2 text-gray-900">Colorado AI Law</h4>
+                <p class="text-sm text-gray-600">Effective Feb 1, 2026. Establishes algorithmic accountability with penalties up to $20k/violation.</p>
+              </div>
+
+              <div class="bg-neutral rounded p-4 border border-gray-100">
+                <h4 class="font-bold mb-2 text-gray-900">EU/UK Alignment</h4>
+                <p class="text-sm text-gray-600">EU AI Act high-risk obligations effective Aug 2026; UK FCA guidance on model risk.</p>
+              </div>
+
+              <div class="bg-neutral rounded p-4 border border-gray-100">
+                <h4 class="font-bold mb-2 text-gray-900">OSFI B-10 Guidance</h4>
+                <p class="text-sm text-gray-600">Third-party risk management framework for AI service providers requiring enhanced oversight.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="patent-activity" class="mb-10">
+          <h3 class="tiempos text-2xl font-bold text-gray-800 mb-4">Patent Activity</h3>
+
+          <div class="bg-white border border-gray-200 rounded-xl p-8 shadow-sm">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div class="data-point">
                 <div class="font-bold text-2xl text-blue-600">2,000+</div>
-                <div class="text-sm text-gray-600">JPMorgan Chase AI Patents</div>
-                <div class="text-xs text-gray-500">Largest banking IP portfolio globally</div>
+                <div class="text-sm text-gray-600">JPMorgan Patents</div>
               </div>
 
               <div class="data-point">
                 <div class="font-bold text-2xl text-green-600">1,500+</div>
-                <div class="text-sm text-gray-600">Capital One AI Patents</div>
-                <div class="text-xs text-gray-500">Focus on explainable &amp; fair AI systems</div>
+                <div class="text-sm text-gray-600">Capital One Patents</div>
               </div>
 
               <div class="data-point">
                 <div class="font-bold text-2xl text-red-600">Limited</div>
-                <div class="text-sm text-gray-600">TD Bank AI IP Visibility</div>
-                <div class="text-xs text-gray-500">Significant gap vs. North American leaders</div>
+                <div class="text-sm text-gray-600">TD Bank Visibility</div>
               </div>
             </div>
 
-            <p class="text-gray-700 mt-4">
-              TD Bank&#39;s limited patent position constrains strategic flexibility: defensive protection against competitor imitation is unavailable, offensive licensing revenue is unrealized, and partnership negotiations lack IP assets for contribution.
-              <a href="https://www.klover.ai/td-bank-ai-strategy-analysis-of-dominance-in-banking/" class="citation">[Source: Klover AI Analysis]</a>
+            <p class="text-gray-600 text-sm mt-4 bg-gray-50 p-3 rounded">
+              <strong>Implication:</strong> TD's limited patent position constrains strategic flexibility—defensive protection is unavailable, and partnership negotiations lack IP assets.
             </p>
           </div>
         </div>
       </section>
 
-      <!-- Strategic Implications -->
       <section id="strategic-implications" class="py-8">
-        <h2 class="tiempos text-3xl font-bold text-gray-900 mb-6">Strategic Implications for Canadian Bank Executives</h2>
+        <h2 class="tiempos text-3xl font-bold text-gray-900 mb-8 border-b pb-4">Strategic Implications</h2>
 
-        <div id="position-assessment" class="mb-8">
+        <div id="position-assessment" class="mb-10">
           <h3 class="tiempos text-2xl font-bold text-gray-800 mb-4">Competitive Position Assessment</h3>
 
           <div class="scenario-block">
-            <h4 class="text-xl font-bold mb-4">Key Vulnerabilities Identified</h4>
+            <h4 class="text-xl font-bold mb-6 border-b border-white/20 pb-2">Key Vulnerabilities Identified</h4>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div class="bg-white bg-opacity-20 p-4 rounded">
-                <h5 class="font-bold mb-2"><i class="fas fa-eye mr-2"></i>Transparency Deficit</h5>
-                <p class="text-sm">#16 ranking creates reputational and talent risks across all stakeholder relationships, from regulatory supervisors to prospective employees.</p>
+              <div class="bg-white/10 p-4 rounded-lg backdrop-blur-sm">
+                <h5 class="font-bold mb-2 text-yellow-300"><i class="fas fa-eye mr-2"></i>Transparency</h5>
+                <p class="text-sm text-white/90">#16 ranking creates reputational and talent risks across all stakeholder relationships.</p>
               </div>
 
-              <div class="bg-white bg-opacity-20 p-4 rounded">
-                <h5 class="font-bold mb-2"><i class="fas fa-tachometer-alt mr-2"></i>Innovation Speed Gap</h5>
-                <p class="text-sm">Declining Innovation pillar ranking threatens market share erosion in segments where AI-enabled services are becoming table stakes.</p>
+              <div class="bg-white/10 p-4 rounded-lg backdrop-blur-sm">
+                <h5 class="font-bold mb-2 text-yellow-300"><i class="fas fa-tachometer-alt mr-2"></i>Innovation Speed</h5>
+                <p class="text-sm text-white/90">Declining Innovation rank threatens market share where AI is becoming table stakes.</p>
               </div>
 
-              <div class="bg-white bg-opacity-20 p-4 rounded">
-                <h5 class="font-bold mb-2"><i class="fas fa-users mr-2"></i>Leadership Visibility Shortfall</h5>
-                <p class="text-sm">#19 ranking limits partnership and acquisition opportunities, as potential counterparts cannot assess TD&#39;s AI seriousness and capability.</p>
+              <div class="bg-white/10 p-4 rounded-lg backdrop-blur-sm">
+                <h5 class="font-bold mb-2 text-yellow-300"><i class="fas fa-users mr-2"></i>Leadership</h5>
+                <p class="text-sm text-white/90">#19 ranking limits partnership opportunities; inability to prove AI seriousness.</p>
               </div>
             </div>
           </div>
         </div>
 
-        <div id="response-framework" class="mb-8">
+        <div id="response-framework" class="mb-10">
           <h3 class="tiempos text-2xl font-bold text-gray-800 mb-4">Response Prioritization Framework</h3>
 
-          <div class="bg-white border border-gray-200 rounded-lg p-6">
+          <div class="bg-white border border-gray-200 rounded-xl p-8 shadow-sm">
             <div class="space-y-6">
-              <div class="border-l-4 border-red-500 pl-4">
-                <h4 class="font-bold text-lg mb-2 text-red-700">Immediate Priority: Agentic AI Roadmap Acceleration</h4>
-                <p class="text-sm text-gray-700 mb-2">Current trajectory implies 12-24 month lag versus leaders with deployed capabilities. Requires compressed timeline for organizational alignment, technology architecture, and governance framework.</p>
-                <div class="text-xs text-gray-500">Timeline: Q1-Q2 2026 | Accountability: CEO/COO</div>
+              <div class="flex gap-4">
+                  <div class="w-1 bg-red-500 rounded-full"></div>
+                  <div>
+                    <h4 class="font-bold text-lg text-red-700">Immediate: Agentic AI Roadmap Acceleration</h4>
+                    <p class="text-sm text-gray-700 mt-1">Current trajectory implies 12-24 month lag. Requires compressed timeline for organizational alignment.</p>
+                    <div class="text-xs text-gray-500 mt-2 font-mono">Timeline: Q1-Q2 2026 | Owner: CEO/COO</div>
+                  </div>
               </div>
 
-              <div class="border-l-4 border-orange-500 pl-4">
-                <h4 class="font-bold text-lg mb-2 text-orange-700">Near-Term Priority: Transparency Strategy Overhaul</h4>
-                <p class="text-sm text-gray-700 mb-2">Requires public AI strategy document, research publication program, executive communication calendar, and customer-facing AI product transparency enhancement.</p>
-                <div class="text-xs text-gray-500">Timeline: Q2-Q3 2026 | Accountability: Chief Communications Officer</div>
+              <div class="flex gap-4">
+                  <div class="w-1 bg-orange-500 rounded-full"></div>
+                  <div>
+                    <h4 class="font-bold text-lg text-orange-700">Near-Term: Transparency Strategy Overhaul</h4>
+                    <p class="text-sm text-gray-700 mt-1">Public AI strategy document, research publication program, and executive communication calendar.</p>
+                    <div class="text-xs text-gray-500 mt-2 font-mono">Timeline: Q2-Q3 2026 | Owner: Comms</div>
+                  </div>
               </div>
 
-              <div class="border-l-4 border-blue-500 pl-4">
-                <h4 class="font-bold text-lg mb-2 text-blue-700">Medium-Term Priority: Sovereign AI Infrastructure</h4>
-                <p class="text-sm text-gray-700 mb-2">Strategic assessment of Canadian AI providers vs. global platforms for regulatory advantage and domestic market positioning.</p>
-                <div class="text-xs text-gray-500">Timeline: Q3-Q4 2026 | Accountability: CTO/CIO</div>
-              </div>
-
-              <div class="border-l-4 border-green-500 pl-4">
-                <h4 class="font-bold text-lg mb-2 text-green-700">Structural Priority: Innovation Investment Scaling</h4>
-                <p class="text-sm text-gray-700 mb-2">Research investment scale comparable to RBC Borealis ($100M+ annual), organizational autonomy for AI development, and M&amp;A capability for AI-native acquisition.</p>
-                <div class="text-xs text-gray-500">Timeline: 2026-2028 | Accountability: Board of Directors</div>
+              <div class="flex gap-4">
+                  <div class="w-1 bg-green-500 rounded-full"></div>
+                  <div>
+                    <h4 class="font-bold text-lg text-green-700">Structural: Innovation Investment Scaling</h4>
+                    <p class="text-sm text-gray-700 mt-1">Research investment scale comparable to RBC Borealis ($100M+ annual) and AI-native M&A capability.</p>
+                    <div class="text-xs text-gray-500 mt-2 font-mono">Timeline: 2026-2028 | Owner: Board</div>
+                  </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div id="risk-scenarios" class="mb-8">
-          <h3 class="tiempos text-2xl font-bold text-gray-800 mb-4">Risk Scenarios &amp; Monitoring Triggers</h3>
+        <div id="risk-scenarios" class="mb-10">
+          <h3 class="tiempos text-2xl font-bold text-gray-800 mb-4">Risk Scenarios</h3>
 
           <div class="competitive-grid">
-            <div class="bg-red-50 border border-red-200 rounded-lg p-4">
-              <h4 class="font-bold text-lg mb-2 text-red-700">Scenario 1: Capital One-Brex Integration Success</h4>
-              <p class="text-sm text-gray-700 mb-3">Rapid integration with deployed AI-native business payments capabilities by Q4 2026–Q1 2027 intensifies competitive pressure on TD Bank&#39;s commercial banking.</p>
-              <div class="text-xs text-gray-500">
-                <strong>Monitoring Triggers:</strong> Integration milestone announcements, customer adoption metrics
-              </div>
+            <div class="bg-red-50 border border-red-100 rounded-lg p-5">
+              <h4 class="font-bold text-lg mb-2 text-red-800">Scenario 1: Cap One Integration</h4>
+              <p class="text-sm text-gray-700">Rapid deployment of AI-native payments by Q4 2026 intensifies pressure on TD Commercial.</p>
             </div>
 
-            <div class="bg-orange-50 border border-orange-200 rounded-lg p-4">
-              <h4 class="font-bold text-lg mb-2 text-orange-700">Scenario 2: JPMorgan Agentic AI Deployment</h4>
-              <p class="text-sm text-gray-700 mb-3">Scale deployment across 450+ use cases by end-2027 creates potentially irreversible capability gap with TD Bank.</p>
-              <div class="text-xs text-gray-500">
-                <strong>Monitoring Triggers:</strong> Use case expansion announcements, productivity outcome disclosure, patent filings
-              </div>
+            <div class="bg-orange-50 border border-orange-100 rounded-lg p-5">
+              <h4 class="font-bold text-lg mb-2 text-orange-800">Scenario 2: Agentic Gap Widens</h4>
+              <p class="text-sm text-gray-700">Scale deployment by JPMC (450+ use cases) creates irreversible capability gap.</p>
             </div>
 
-            <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
-              <h4 class="font-bold text-lg mb-2 text-blue-700">Scenario 3: Regulatory Fragmentation</h4>
-              <p class="text-sm text-gray-700 mb-3">Canadian or US federal AI regulation with domestic infrastructure preference favors banks with proactive sovereign AI posture.</p>
-              <div class="text-xs text-gray-500">
-                <strong>Monitoring Triggers:</strong> Canadian AI strategy announcements, US federal regulation development, competitor partnership announcements
-              </div>
+            <div class="bg-blue-50 border border-blue-100 rounded-lg p-5">
+              <h4 class="font-bold text-lg mb-2 text-blue-800">Scenario 3: Reg Fragmentation</h4>
+              <p class="text-sm text-gray-700">Domestic infrastructure preference favors banks with proactive sovereign AI posture.</p>
             </div>
-          </div>
-
-          <div class="key-insight mt-6">
-            <h4 class="font-bold mb-2"><i class="fas fa-chart-line mr-2"></i>Critical Success Factors</h4>
-            <p class="mb-3">For Canadian bank executives, the intelligence demands immediate action across three critical dimensions:</p>
-            <ol class="list-decimal list-inside space-y-1 text-sm">
-              <li>Accelerate Agentic AI roadmap to close 12-24 month competitive gap</li>
-              <li>Overhaul transparency strategy to address #16 ranking deficit</li>
-              <li>Scale innovation investment to avoid irreversible competitive disadvantage</li>
-            </ol>
           </div>
         </div>
       </section>
 
-      <!-- Footer Citation Note -->
-      <footer class="py-6 border-t border-gray-200 text-center text-sm text-gray-600">
-        <p>All data sources are cited throughout the document. Click on citation links to access original sources.</p>
-        <p class="mt-2">Intelligence compiled for Canadian bank executives from verified sources. January 21-25, 2026.</p>
+      <footer class="py-8 border-t border-gray-200 text-center">
+        <p class="text-sm text-gray-500">Intelligence compiled for Canadian bank executives from verified sources. January 21-25, 2026.</p>
+        <p class="text-xs text-gray-400 mt-2">All data sources are cited throughout the document.</p>
       </footer>
     </main>
 
@@ -986,13 +906,6 @@
                 htmlLabels: true,
                 curve: 'basis',
                 padding: 20
-            },
-            sequence: {
-                useMaxWidth: true,
-                wrap: true
-            },
-            gantt: {
-                useMaxWidth: true
             }
         });
 
@@ -1001,245 +914,48 @@
             const containers = document.querySelectorAll('.mermaid-container');
 
             containers.forEach(container => {
-            const mermaidElement = container.querySelector('.mermaid');
-            let scale = 1;
-            let isDragging = false;
-            let startX, startY, translateX = 0, translateY = 0;
+                const mermaidElement = container.querySelector('.mermaid');
+                let scale = 1;
+                let isDragging = false;
+                let startX, startY, translateX = 0, translateY = 0;
 
-            // 触摸相关状态
-            let isTouch = false;
-            let touchStartTime = 0;
-            let initialDistance = 0;
-            let initialScale = 1;
-            let isPinching = false;
+                const updateTransform = () => {
+                    mermaidElement.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+                    mermaidElement.style.cursor = isDragging ? 'grabbing' : 'grab';
+                };
 
-            // Zoom controls
-            const zoomInBtn = container.querySelector('.zoom-in');
-            const zoomOutBtn = container.querySelector('.zoom-out');
-            const resetBtn = container.querySelector('.reset-zoom');
-            const fullscreenBtn = container.querySelector('.fullscreen');
+                container.querySelector('.zoom-in')?.addEventListener('click', () => { scale = Math.min(scale * 1.25, 4); updateTransform(); });
+                container.querySelector('.zoom-out')?.addEventListener('click', () => { scale = Math.max(scale / 1.25, 0.3); updateTransform(); });
+                container.querySelector('.reset-zoom')?.addEventListener('click', () => { scale = 1; translateX = 0; translateY = 0; updateTransform(); });
 
-            function updateTransform() {
-                mermaidElement.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
-
-                if (scale > 1) {
-                container.classList.add('zoomed');
-                } else {
-                container.classList.remove('zoomed');
-                }
-
-                mermaidElement.style.cursor = isDragging ? 'grabbing' : 'grab';
-            }
-
-            if (zoomInBtn) {
-                zoomInBtn.addEventListener('click', () => {
-                scale = Math.min(scale * 1.25, 4);
-                updateTransform();
+                mermaidElement.addEventListener('mousedown', (e) => {
+                    isDragging = true;
+                    startX = e.clientX - translateX;
+                    startY = e.clientY - translateY;
+                    e.preventDefault();
                 });
-            }
 
-            if (zoomOutBtn) {
-                zoomOutBtn.addEventListener('click', () => {
-                scale = Math.max(scale / 1.25, 0.3);
-                if (scale <= 1) {
-                    translateX = 0;
-                    translateY = 0;
-                }
-                updateTransform();
-                });
-            }
-
-            if (resetBtn) {
-                resetBtn.addEventListener('click', () => {
-                scale = 1;
-                translateX = 0;
-                translateY = 0;
-                updateTransform();
-                });
-            }
-
-            if (fullscreenBtn) {
-                fullscreenBtn.addEventListener('click', () => {
-                if (container.requestFullscreen) {
-                    container.requestFullscreen();
-                } else if (container.webkitRequestFullscreen) {
-                    container.webkitRequestFullscreen();
-                } else if (container.msRequestFullscreen) {
-                    container.msRequestFullscreen();
-                }
-                });
-            }
-
-            // Mouse Events
-            mermaidElement.addEventListener('mousedown', (e) => {
-                if (isTouch) return; // 如果是触摸设备，忽略鼠标事件
-
-                isDragging = true;
-                startX = e.clientX - translateX;
-                startY = e.clientY - translateY;
-                mermaidElement.style.cursor = 'grabbing';
-                updateTransform();
-                e.preventDefault();
-            });
-
-            document.addEventListener('mousemove', (e) => {
-                if (isDragging && !isTouch) {
-                translateX = e.clientX - startX;
-                translateY = e.clientY - startY;
-                updateTransform();
-                }
-            });
-
-            document.addEventListener('mouseup', () => {
-                if (isDragging && !isTouch) {
-                isDragging = false;
-                mermaidElement.style.cursor = 'grab';
-                updateTransform();
-                }
-            });
-
-            document.addEventListener('mouseleave', () => {
-                if (isDragging && !isTouch) {
-                isDragging = false;
-                mermaidElement.style.cursor = 'grab';
-                updateTransform();
-                }
-            });
-
-            // 获取两点之间的距离
-            function getTouchDistance(touch1, touch2) {
-                return Math.hypot(
-                touch2.clientX - touch1.clientX,
-                touch2.clientY - touch1.clientY
-                );
-            }
-
-            // Touch Events - 触摸事件处理
-            mermaidElement.addEventListener('touchstart', (e) => {
-                isTouch = true;
-                touchStartTime = Date.now();
-
-                if (e.touches.length === 1) {
-                // 单指拖动
-                isPinching = false;
-                isDragging = true;
-
-                const touch = e.touches[0];
-                startX = touch.clientX - translateX;
-                startY = touch.clientY - translateY;
-
-                } else if (e.touches.length === 2) {
-                // 双指缩放
-                isPinching = true;
-                isDragging = false;
-
-                const touch1 = e.touches[0];
-                const touch2 = e.touches[1];
-                initialDistance = getTouchDistance(touch1, touch2);
-                initialScale = scale;
-                }
-
-                e.preventDefault();
-            }, { passive: false });
-
-            mermaidElement.addEventListener('touchmove', (e) => {
-                if (e.touches.length === 1 && isDragging && !isPinching) {
-                // 单指拖动
-                const touch = e.touches[0];
-                translateX = touch.clientX - startX;
-                translateY = touch.clientY - startY;
-                updateTransform();
-
-                } else if (e.touches.length === 2 && isPinching) {
-                // 双指缩放
-                const touch1 = e.touches[0];
-                const touch2 = e.touches[1];
-                const currentDistance = getTouchDistance(touch1, touch2);
-
-                if (initialDistance > 0) {
-                    const newScale = Math.min(Math.max(
-                    initialScale * (currentDistance / initialDistance),
-                    0.3
-                    ), 4);
-                    scale = newScale;
+                document.addEventListener('mousemove', (e) => {
+                    if (!isDragging) return;
+                    translateX = e.clientX - startX;
+                    translateY = e.clientY - startY;
                     updateTransform();
-                }
-                }
+                });
 
-                e.preventDefault();
-            }, { passive: false });
-
-            mermaidElement.addEventListener('touchend', (e) => {
-                // 重置状态
-                if (e.touches.length === 0) {
-                isDragging = false;
-                isPinching = false;
-                initialDistance = 0;
-
-                // 延迟重置isTouch，避免鼠标事件立即触发
-                setTimeout(() => {
-                    isTouch = false;
-                }, 100);
-                } else if (e.touches.length === 1 && isPinching) {
-                // 从双指变为单指，切换为拖动模式
-                isPinching = false;
-                isDragging = true;
-
-                const touch = e.touches[0];
-                startX = touch.clientX - translateX;
-                startY = touch.clientY - translateY;
-                }
-
-                updateTransform();
-            });
-
-            mermaidElement.addEventListener('touchcancel', (e) => {
-                isDragging = false;
-                isPinching = false;
-                initialDistance = 0;
-
-                setTimeout(() => {
-                isTouch = false;
-                }, 100);
-
-                updateTransform();
-            });
-
-            // Enhanced wheel zoom with better center point handling
-            container.addEventListener('wheel', (e) => {
-                e.preventDefault();
-                const rect = container.getBoundingClientRect();
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-
-                const delta = e.deltaY > 0 ? 0.9 : 1.1;
-                const newScale = Math.min(Math.max(scale * delta, 0.3), 4);
-
-                // Adjust translation to zoom towards center
-                if (newScale !== scale) {
-                const scaleDiff = newScale / scale;
-                translateX = translateX * scaleDiff;
-                translateY = translateY * scaleDiff;
-                scale = newScale;
-
-                if (scale <= 1) {
-                    translateX = 0;
-                    translateY = 0;
-                }
-
-                updateTransform();
-                }
-            });
-
-            // Initialize display
-            updateTransform();
+                document.addEventListener('mouseup', () => { isDragging = false; updateTransform(); });
+                document.addEventListener('mouseleave', () => { isDragging = false; updateTransform(); });
+                
+                // Wheel Zoom
+                container.addEventListener('wheel', (e) => {
+                    e.preventDefault();
+                    const delta = e.deltaY > 0 ? 0.9 : 1.1;
+                    scale = Math.min(Math.max(scale * delta, 0.3), 4);
+                    updateTransform();
+                });
             });
         }
 
-        // Initialize the mermaid controls when the page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            initializeMermaidControls();
-        });
+        document.addEventListener('DOMContentLoaded', initializeMermaidControls);
 
         // Smooth scrolling for TOC links
         document.querySelectorAll('.toc-link').forEach(link => {
@@ -1252,68 +968,27 @@
                 }
             });
         });
-
-        // Active section highlighting
-        function updateActiveTocLink() {
+        
+        // Active TOC Highlighting
+        window.addEventListener('scroll', () => {
             const sections = document.querySelectorAll('[id]');
             const tocLinks = document.querySelectorAll('.toc-link');
-            
             let current = '';
+            
             sections.forEach(section => {
-                const rect = section.getBoundingClientRect();
-                if (rect.top <= 100) {
-                    current = section.id;
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 150) {
+                    current = section.getAttribute('id');
                 }
             });
-            
+
             tocLinks.forEach(link => {
                 link.classList.remove('active');
-                if (link.getAttribute('href') === '#' + current) {
+                if (link.getAttribute('href').includes(current) && current !== '') {
                     link.classList.add('active');
-                }
-            });
-        }
-
-        window.addEventListener('scroll', updateActiveTocLink);
-        updateActiveTocLink(); // Initial call
-
-        // Mobile TOC toggle (if needed)
-        function toggleTOC() {
-            const sidebar = document.querySelector('.toc-sidebar');
-            sidebar.classList.toggle('open');
-        }
-
-        // Function to handle window resize
-        function handleResize() {
-            const sidebar = document.querySelector('.toc-sidebar');
-            const mainContent = document.querySelector('.main-content');
-            
-            if (window.innerWidth <= 1024) {
-                // Close sidebar on mobile
-                sidebar.classList.remove('open');
-            } else {
-                // Reset sidebar state on desktop
-                sidebar.classList.remove('open');
-            }
-        }
-
-        // Add event listener for window resize
-        window.addEventListener('resize', handleResize);
-
-        // Initial resize handling
-        handleResize();
-        
-        // Citation click handlers
-        document.querySelectorAll('.citation').forEach(citation => {
-            citation.addEventListener('click', function(e) {
-                e.preventDefault();
-                const citationNumber = this.textContent.match(/\[(\d+)\]/);
-                if (citationNumber) {
-                    alert(`Citation ${citationNumber[0]}: This would link to the original source document.`);
                 }
             });
         });
     </script>
-  
-
-</body></html>
+  </body>
+</html>
