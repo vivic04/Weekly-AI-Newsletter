@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>North American Banking AI Intelligence: January 21-25, 2026</title>
+    <title>North American Banking AI Intelligence: January 25- February 02, 2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Tiempos+Headline:wght@400;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
@@ -21,7 +21,7 @@
             line-height: 1.6;
             color: var(--base-content);
             background-color: #f8fafc;
-            /* Nice Background: Subtle dot pattern with radial gradient */
+            /* Nice Background: Subtle dot pattern */
             background-image: radial-gradient(#cbd5e1 1.5px, transparent 1.5px), radial-gradient(circle at top left, #f8fafc 0%, #f1f5f9 100%);
             background-size: 24px 24px, 100% 100%;
             background-attachment: fixed;
@@ -108,52 +108,49 @@
             padding-top: 2rem;
         }
         
+        /* Updated Hero Text Background */
         .hero-text {
             display: flex;
             flex-direction: column;
             justify-content: center;
+            /* Nice background behind title */
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            padding: 3rem;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.08);
         }
         
-        /* Hero Visual - The "Paper" Container */
+        /* Fixed Hero Visual - No Clipping */
         .hero-visual {
             position: relative;
-            height: 380px;
+            height: 450px; /* Increased height to prevent clipping */
             display: flex;
             align-items: center;
             justify-content: center;
             perspective: 1000px;
+            overflow: visible; /* Crucial fix: Allows shadow/rotation to spill out */
         }
         
         .hero-visual img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 12px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            transform: rotateY(-5deg) rotateX(2deg);
-            transition: transform 0.5s ease;
-            border: 8px solid white;
+            height: auto;
+            max-height: 100%;
+            object-fit: contain; /* Ensure full image is seen */
+            border-radius: 4px;
+            /* Paper effect */
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.3);
+            transform: rotateY(-8deg) rotateX(5deg) scale(0.95);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            border: 8px solid white; 
+            background: white;
         }
 
         .hero-visual:hover img {
-            transform: rotateY(0) rotateX(0);
-        }
-        
-        /* Key Insight - Floating Card ON TOP */
-        .key-insight {
-            position: absolute;
-            bottom: -30px;
-            left: -30px; /* Overlap nicely */
-            width: 85%;
-            background: rgba(255, 255, 255, 0.95);
-            color: var(--primary);
-            padding: 1.5rem;
-            border-radius: 12px;
-            border-left: 6px solid var(--accent);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-            z-index: 50; /* Ensure it is on top */
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255,255,255,0.5);
+            transform: rotateY(0) rotateX(0) scale(1);
+            box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.35);
+            z-index: 10;
         }
         
         .competitive-grid {
@@ -217,13 +214,6 @@
             .hero-visual {
                 height: 300px;
                 margin-bottom: 2rem;
-            }
-            .key-insight {
-                position: relative;
-                bottom: auto;
-                left: auto;
-                width: 100%;
-                margin-top: -20px;
             }
         }
         
@@ -322,7 +312,6 @@
         <div class="toc-subsection">
           <a href="#capital-one-brex" class="toc-link">Capital One-Brex Deal</a>
           <a href="#us-big6-acceleration" class="toc-link">US Big 6 Acceleration</a>
-          <a href="#td-performance-gap" class="toc-link">TD Performance Gap</a>
           <a href="#agentic-ai-emergence" class="toc-link">Agentic AI Emergence</a>
         </div>
       </div>
@@ -353,7 +342,7 @@
           <div class="hero-text">
             <h1 class="tiempos text-5xl font-bold text-gray-900 mb-6 leading-tight">
               North American Banking AI Intelligence:
-              <span class="text-red-600 block mt-2">January 21-25, 2026</span>
+              <span class="text-red-600 block mt-2">Jan 21- Feb 02, 2026</span>
             </h1>
             <p class="text-xl text-gray-600 mb-8 leading-relaxed">
               A pivotal week in banking AI competition, marked by the largest bank-fintech acquisition in history and TD Bank's accelerating competitive challenges.
@@ -365,7 +354,7 @@
           </div>
 
           <div class="hero-visual">
-            <img src="https://kimi-web-img.moonshot.cn/img/i1.rgstatic.net/5eb49f26a124d870568024d1ef9431d8fe897e1d.png" alt="Abstract visualization of AI in banking"/>
+            <img src="https://miro.medium.com/v2/resize:fit:1400/1*JlM2STTsIcx6q4gXLvxccA.png" alt="Abstract visualization of AI in banking"/>
           </div>
         </div>
       </section>
@@ -377,11 +366,6 @@
           <div class="competitive-card">
             <h3 class="font-bold text-lg mb-3 text-red-600">Market-Defining Acquisition</h3>
             <p class="text-gray-700">Capital One's <strong>$5.15B acquisition of Brex</strong> creates the largest bank-fintech AI deal in history, directly threatening TD Bank's commercial banking ambitions.</p>
-          </div>
-
-          <div class="competitive-card">
-            <h3 class="font-bold text-lg mb-3 text-red-600">TD Bank Performance Crisis</h3>
-            <p class="text-gray-700">TD Bank fell to <strong>#13 in the Evident AI Index 2025</strong>, with severe weaknesses in Transparency (#16), Leadership visibility (#19), and Innovation velocity (#8).</p>
           </div>
 
           <div class="competitive-card">
